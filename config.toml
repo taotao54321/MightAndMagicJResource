@@ -1,0 +1,6 @@
+base_url = "https://taotao54321.github.io/MightAndMagicJResource"
+
+[markdown]
+highlight_code = true
+
+[extra]

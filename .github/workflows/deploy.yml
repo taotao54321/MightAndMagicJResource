@@ -1,0 +1,16 @@
+on:
+  push:
+  workflow_dispatch:
+
+name: Zola on GitHub Pages
+jobs:
+  build:
+    name: shalzz/zola-deploy-action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: shalzz/zola-deploy-action
+      uses: shalzz/zola-deploy-action@v0.17.2
+      env:
+        PAGES_BRANCH: gh-pages
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

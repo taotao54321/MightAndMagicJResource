@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% for sect_path in section.ancestors %}
+        {% set sect = get_section(path=sect_path, metadata_only=true) %}
+        {{ sect.title }} - 
+    {% endfor %}
+    {{ section.title }}
+{% endblock %}
+
+{% block content %}
+    <header>
+        {% for sect_path in section.ancestors %}
+            {% set sect = get_section(path=sect_path, metadata_only=true) %}
+            <a href="{{ sect.permalink | safe }}">{{ sect.title }}</a>
+            {% if loop.last %}
+            {% else %}
+                - 
+            {% endif %}
+        {% endfor %}
+    </header>
+
+    <h1>{{ section.title }}</h1>
+
+    {{ section.content | safe }}
+{% endblock %}
