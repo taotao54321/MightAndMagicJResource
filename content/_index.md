@@ -4,6 +4,7 @@ title = "マイトアンドマジック (FC) 攻略/解析"
 
 ## Contents
 
+* [予備知識](@/prepare/_index.md)
 * [データ構造](@/data-structure/_index.md)
 * [アイテム](@/item/_index.md)
 * [マップ](@/map/_index.md)
