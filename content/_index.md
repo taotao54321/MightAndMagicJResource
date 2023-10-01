@@ -11,6 +11,7 @@ title = "マイトアンドマジック (FC) 攻略/解析"
 * [味方キャラ](@/hero/_index.md)
 * [魔法](@/spell/_index.md)
 * [アイテム](@/item/_index.md)
+* [モンスター](@/monster/_index.md)
 * [マップ](@/map/_index.md)
 * [小ネタ](@/tips/_index.md)
 * [参考資料](@/reference/_index.md)
