@@ -12,6 +12,7 @@ title = "マイトアンドマジック (FC) 攻略/解析"
 * [魔法](@/spell/_index.md)
 * [アイテム](@/item/_index.md)
 * [マップ](@/map/_index.md)
+* [小ネタ](@/tips/_index.md)
 * [参考資料](@/reference/_index.md)
 
 この文書は[gitリポジトリ](https://github.com/taotao54321/MightAndMagicJResource)で管理されている。誤りの指摘などは issue へどうぞ。
