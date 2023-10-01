@@ -88,3 +88,4 @@ title = "PRG 28"
 | `$9E46` | [マップメタデータ](@/data-structure/place-metadata/_index.md): エルドラド地下4 |
 | `$9E94` | [マップメタデータ](@/data-structure/place-metadata/_index.md): アストラル世界 |
 | `$9EE2` | [マップメタデータ](@/data-structure/place-metadata/_index.md): イドの迷宮 |
+| `$9F30-$9FFF`| (未使用) |
