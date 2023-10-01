@@ -178,7 +178,7 @@ title = "RAM"
 | `$615B-` | | {% todo() %}TODO{% end %} |
 | `$615D-$617C` | `u8[0x20]` | 現在のパレット |
 | `$617D-$617F` | | (未使用) |
-| `$6180-$61BF` | `u8[0x40]` | 現在のマップメタデータ(マップ名除く) |
+| `$6180-$61BF` | `u8[0x40]` | 現在の[マップメタデータ](@/data-structure/place-metadata/_index.md)(マップ名除く) |
 | | | {% todo() %}TODO{% end %} |
 | `$6200-$62FF` | `u8[0x100]` | 現在のマップの[マップ境界配列](@/data-structure/place-boundarys/_index.md) |
 | `$6300-$63FF` | `u8[0x100]` | 現在のマップの[マップ各種フラグ配列](@/data-structure/place-flags/_index.md) |
@@ -286,6 +286,3 @@ ABSTUDLR 形式 (bit0:R, bit1:L, ..., bit7:A)。
 | 1 | 東 |
 | 2 | 南 |
 | 3 | 西 |
-
-
-
