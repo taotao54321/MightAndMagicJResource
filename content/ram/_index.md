@@ -97,6 +97,8 @@ title = "RAM"
 | `$0393-$0394` | | 雑用 |
 | `$0395` | `u8` | 徘徊エンカウント発生フラグ (0:false, 1:true) |
 | | | {% todo() %}TODO{% end %} |
+| `$039A` | `u8` | 先制値 ([先制判定/処理](@/encounter/preemptive/_index.md)参照) |
+| | | {% todo() %}TODO{% end %} |
 | `$039C-$039D` | | 雑用 |
 | | | {% todo() %}TODO{% end %} |
 | `$03A2` | | 雑用 |
