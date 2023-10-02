@@ -23,6 +23,10 @@ h1, h2, h3 {
     cursor: help;
 }
 
+.summary {
+    background-color: #FFFFA0;
+}
+
 .todo {
     color: #808000;
 }
