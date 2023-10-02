@@ -13,3 +13,4 @@ title = "参考資料"
 * [Might and Magic Wiki](https://mightandmagic.fandom.com/wiki/Main_Page)
 * [神龍タコ美のブログ - マイトアンドマジック(FC)のお話・裏技や完全攻略法](https://ameblo.jp/jinnryuu-takomi/entry-12446408887.html)
 * [ニコニコ動画 - マイトアンドマジックを遊び尽くすんだお（・ω・´）](https://www.nicovideo.jp/user/58804149/mylist/56178704)
+* [YouTube - 神龍タコ美氏の動画集](https://www.youtube.com/playlist?list=PLlV9ubqvbe6rIE77gNXTpN3WhV7Loql4G)
