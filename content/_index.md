@@ -19,6 +19,7 @@ title = "マイトアンドマジック (FC) 攻略/解析"
 * [アイテム](@/item/_index.md)
 * [モンスター](@/monster/_index.md)
 * [マップ](@/map/_index.md)
+* [額入りの絵](@/framed-picture/_index.md)
 
 ### ゲームシステム
 
