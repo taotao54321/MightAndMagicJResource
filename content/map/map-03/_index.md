@@ -1925,7 +1925,7 @@ title = "アルガリーの町"
 <use href="#svg-cell-8-12" x="297" y="132"><title>(8, 12) 南: 教会の看板</title></use>
 <use href="#svg-cell-8-13" x="297" y="99"><title>(8, 13)</title></use>
 <use href="#svg-cell-8-14" x="297" y="66"><title>(8, 14)</title></use>
-<use href="#svg-cell-8-15" x="297" y="33"><title>(8, 15) 北: 出口 (バーン地上D7 (7, 7) へ)</title></use>
+<use href="#svg-cell-8-15" x="297" y="33"><title>(8, 15) 北: 出口 (バーン地上D4 (7, 7) へ)</title></use>
 <use href="#svg-cell-9-0" x="330" y="528"><title>(9, 0) 東or南: 青く光る壁 (触るとポートスミスの町 (8, 4) へテレポート)</title></use>
 <use href="#svg-cell-9-1" x="330" y="495"><title>(9, 1)</title></use>
 <use href="#svg-cell-9-2" x="330" y="462"><title>(9, 2)</title></use>
