@@ -24,6 +24,7 @@ title = "マイトアンドマジック (FC) 攻略/解析"
 ### ゲームシステム
 
 * [エンカウント](@/encounter/_index.md)
+* [お宝](@/treasure/_index.md)
 
 ### バグ、未使用要素など
 
