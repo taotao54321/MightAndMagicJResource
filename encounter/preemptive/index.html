@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -エンカウント -先制判定&#x2F;処理</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/">エンカウント</a>
+            
+            </header>
+
+    <h1>先制判定&#x2F;処理</h1>
+
+    <p><a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/composition/">敵編成処理</a>終了後の先制判定/処理について。</p>
+<p>自軍/敵軍の先制判定には <code>$039A</code> の値が関わっており、これを「先制値」と呼称する。先制値は起動直後の初期値が 0 で、以下のタイミングで変化する:</p>
+<ul>
+<li>敵軍が先制したとき 0xFF になる。</li>
+<li>徘徊エンカウント発生直前に 1 が加算される。</li>
+</ul>
+<h2 id="xian-zhi-pan-ding">先制判定</h2>
+<p>まず、先制値の bit7 が 1 ならば必ず敵軍先制となる。</p>
+<p>注: 先制値は敵軍先制時に 0xFF になるから、<span class="xxx">いったん敵軍に先制されるとそれ以降の強制エンカウントではずっと敵軍先制が続く。</span>この状態を解除するにはセーブ-&gt;リセットor全滅-&gt;ロードを行うか、徘徊エンカウントを起こすしかない(いずれの場合も先制値が 0 に戻る)。これは正式な仕様とは考えにくいので、何らかの不具合と思われる(戦闘終了時に値をリセットするのを忘れた、など)。</p>
+<p>そうでない場合、先制値が 0 でなければ自軍先制判定を行う。現在のマップの自軍先制確率に基づく乱数判定を行い、成功すれば自軍先制となる。</p>
+<p>注: 先制値の初期値は 0 だから、<span class="xxx">起動後に少なくとも 1 回徘徊エンカウント判定にかかっていなければ自軍先制にはなりえない。</span></p>
+<p>自軍先制にならなかった場合、敵軍先制判定を行う。まず、PTバフ「幻の犬」が有効なら敵軍先制にはならない。さもなくば現在のマップの敵軍先制確率に基づく乱数判定を行い、成功すれば敵軍先制となる。</p>
+<p>敵軍先制にもならなかった場合、両軍先制なしで<a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/pre-battle/">戦闘前フェイズ</a>へ移行する。</p>
+<h2 id="xian-zhi-chu-li">先制処理</h2>
+<h3 id="zi-jun-xian-zhi-nochang-he">自軍先制の場合</h3>
+<p>自軍先制の場合、敵はこちらに気付いておらず、敵に近づくかどうか尋ねられる。返答により以下のように分岐する:</p>
+<ul>
+<li>「はい」を選ぶと必ず敵に見つかり、戦闘に突入する。</li>
+<li>「いいえ」またはキャンセルを選ぶと 99/100 の確率で戦闘を回避でき、1/100 の確率で敵に見つかって戦闘に突入する。</li>
+</ul>
+<h3 id="di-jun-xian-zhi-nochang-he">敵軍先制の場合</h3>
+<p>敵軍先制の場合、直ちに戦闘に突入する。また、上記の通り先制値が 0xFF になる。</p>
+</body>
+</html>

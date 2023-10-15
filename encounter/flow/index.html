@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -エンカウント -エンカウント発生後の流れ</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/">エンカウント</a>
+            
+            </header>
+
+    <h1>エンカウント発生後の流れ</h1>
+
+    <p>エンカウント発生後の処理の概略を記す。</p>
+<p>まず<a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/composition/">敵編成処理</a>により敵軍の全個体を確定させる。具体的には、マップごとの制約や彼我の強さを考慮した上でランダム敵を追加できるだけ追加する。</p>
+<p>次に自軍/敵軍の<a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/preemptive/">先制判定/処理</a>を行う。自軍先制の場合、敵に気付かれず戦闘を回避できる可能性がある。敵軍先制の場合は直ちに戦闘に突入する。自軍が先制して戦闘を回避した場合はここで終了処理を行う。</p>
+<p>戦闘を回避しておらず、かつ敵軍先制でなければ<a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/pre-battle/">戦闘前フェイズ</a>を実行する。ここで「おくりもの」「にげる」「こうさん」コマンドにより戦闘を回避した場合は終了処理を行う。戦闘回避に失敗するか、もしくは「たたかう」を選んだ場合は戦闘に突入する。</p>
+</body>
+</html>

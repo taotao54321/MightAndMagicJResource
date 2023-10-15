@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+header {
+    background-color: #B0B0B0;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid;
+}
+
+h1, h2, h3 {
+    background-color: #CCCCCC;
+}
+
+.has-tooltip {
+    text-decoration: underline dotted;
+    cursor: help;
+}
+
+.summary {
+    background-color: #FFFFA0;
+}
+
+.todo {
+    color: #808000;
+}
+
+.note {
+    font-weight: bold;
+}
+
+.xxx {
+    color: #FF0000;
+}

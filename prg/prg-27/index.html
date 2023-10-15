@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -PRG-ROM -PRG 27</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/prg/">PRG-ROM</a>
+            
+            </header>
+
+    <h1>PRG 27</h1>
+
+    <p>論理アドレス <code>$8000-$9FFF</code> にマップされるセグメント。</p>
+<p>以下のマップデータを格納している:</p>
+<ul>
+<li>バーン地上E3</li>
+<li>バーン地上E4</li>
+<li>デュームの城</li>
+<li>ホワイトウルフの城</li>
+<li>アラマーの城</li>
+<li>ブラックリッジノース</li>
+<li>ブラックリッジサウス</li>
+<li>ドラガデューンの城</li>
+<li>ドラガデューン地下1</li>
+<li>ドラガデューン地下2</li>
+<li>ドラガデューン地下3</li>
+<li>魔法の砦地下1</li>
+<li>魔法の砦地下2</li>
+<li>森のあばら屋地下1</li>
+<li>森のあばら屋地下2</li>
+<li>レイバン砦地下1</li>
+</ul>
+<h2 id="memorimatupu">メモリマップ</h2>
+<table><thead><tr><th>アドレス</th><th>内容</th></tr></thead><tbody>
+<tr><td><code>$8000</code></td><td>バーン地上E3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8100</code></td><td>バーン地上E3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8200</code></td><td>バーン地上E4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8300</code></td><td>バーン地上E4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8400</code></td><td>デュームの城 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8500</code></td><td>デュームの城 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8600</code></td><td>ホワイトウルフの城 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8700</code></td><td>ホワイトウルフの城 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8800</code></td><td>アラマーの城 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8900</code></td><td>アラマーの城 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8A00</code></td><td>ブラックリッジノース <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8B00</code></td><td>ブラックリッジノース <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8C00</code></td><td>ブラックリッジサウス <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8D00</code></td><td>ブラックリッジサウス <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8E00</code></td><td>ドラガデューンの城 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8F00</code></td><td>ドラガデューンの城 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9000</code></td><td>ドラガデューン地下1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9100</code></td><td>ドラガデューン地下1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9200</code></td><td>ドラガデューン地下2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9300</code></td><td>ドラガデューン地下2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9400</code></td><td>ドラガデューン地下3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9500</code></td><td>ドラガデューン地下3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9600</code></td><td>魔法の砦地下1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9700</code></td><td>魔法の砦地下1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9800</code></td><td>魔法の砦地下2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9900</code></td><td>魔法の砦地下2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9A00</code></td><td>森のあばら屋地下1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9B00</code></td><td>森のあばら屋地下1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9C00</code></td><td>森のあばら屋地下2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9D00</code></td><td>森のあばら屋地下2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9E00</code></td><td>レイバン砦地下1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9F00</code></td><td>レイバン砦地下1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+</tbody></table>
+</body>
+</html>

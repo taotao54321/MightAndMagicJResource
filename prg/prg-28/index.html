@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -PRG-ROM -PRG 28</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/prg/">PRG-ROM</a>
+            
+            </header>
+
+    <h1>PRG 28</h1>
+
+    <p>論理アドレス <code>$8000-$9FFF</code> にマップされるセグメント。</p>
+<p>マップメタデータテーブル、および以下のマップデータを格納している:</p>
+<ul>
+<li>レイバン砦地下2</li>
+<li>エルドラド地下1</li>
+<li>エルドラド地下2</li>
+<li>エルドラド地下3</li>
+<li>エルドラド地下4</li>
+<li>アストラル世界</li>
+<li>イドの迷宮</li>
+</ul>
+<h2 id="memorimatupu">メモリマップ</h2>
+<table><thead><tr><th>アドレス</th><th>内容</th></tr></thead><tbody>
+<tr><td><code>$8000</code></td><td>レイバン砦地下2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8100</code></td><td>レイバン砦地下2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8200</code></td><td>エルドラド地下1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8300</code></td><td>エルドラド地下1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8400</code></td><td>エルドラド地下2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8500</code></td><td>エルドラド地下2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8600</code></td><td>エルドラド地下3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8700</code></td><td>エルドラド地下3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8800</code></td><td>エルドラド地下4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8900</code></td><td>エルドラド地下4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8A00</code></td><td>アストラル世界 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8B00</code></td><td>アストラル世界 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8C00</code></td><td>イドの迷宮 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8D00</code></td><td>イドの迷宮 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8E00</code></td><td>各<a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>へのポインタテーブル</td></tr>
+<tr><td><code>$8E6E</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ソーピガルの町</td></tr>
+<tr><td><code>$8EBC</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ポートスミスの町</td></tr>
+<tr><td><code>$8F0A</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: アルガリーの町</td></tr>
+<tr><td><code>$8F58</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ダスクの町</td></tr>
+<tr><td><code>$8FA6</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: エルキューンの町</td></tr>
+<tr><td><code>$8FF4</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ソーピガルの地下</td></tr>
+<tr><td><code>$9042</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ノーザンバリアー洞穴</td></tr>
+<tr><td><code>$9090</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ポートスミスの地下</td></tr>
+<tr><td><code>$90DE</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: エルキューンの地下</td></tr>
+<tr><td><code>$912C</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ダスクの地下</td></tr>
+<tr><td><code>$917A</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: コリンブルッフ洞穴</td></tr>
+<tr><td><code>$91C8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ボルカノ神殿</td></tr>
+<tr><td><code>$9216</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: 鷹の目洞穴</td></tr>
+<tr><td><code>$9264</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ホワイトウルフ洞穴</td></tr>
+<tr><td><code>$92B2</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上A1</td></tr>
+<tr><td><code>$9300</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上A2</td></tr>
+<tr><td><code>$934E</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上A3</td></tr>
+<tr><td><code>$939C</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上A4</td></tr>
+<tr><td><code>$93EA</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上B1</td></tr>
+<tr><td><code>$9438</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上B2</td></tr>
+<tr><td><code>$9486</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上B3</td></tr>
+<tr><td><code>$94D4</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上B4</td></tr>
+<tr><td><code>$9522</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上C1</td></tr>
+<tr><td><code>$9570</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上C2</td></tr>
+<tr><td><code>$95BE</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上C3</td></tr>
+<tr><td><code>$960C</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上C4</td></tr>
+<tr><td><code>$965A</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上D1</td></tr>
+<tr><td><code>$96A8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上D2</td></tr>
+<tr><td><code>$96F6</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上D3</td></tr>
+<tr><td><code>$9744</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上D4</td></tr>
+<tr><td><code>$9792</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上E1</td></tr>
+<tr><td><code>$97E0</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上E2</td></tr>
+<tr><td><code>$982E</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上E3</td></tr>
+<tr><td><code>$987C</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: バーン地上E4</td></tr>
+<tr><td><code>$98CA</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: デュームの城</td></tr>
+<tr><td><code>$9918</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ホワイトウルフの城</td></tr>
+<tr><td><code>$9966</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: アラマーの城</td></tr>
+<tr><td><code>$99B4</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ブラックリッジノース</td></tr>
+<tr><td><code>$9A02</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ブラックリッジサウス</td></tr>
+<tr><td><code>$9A50</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ドラガデューンの城</td></tr>
+<tr><td><code>$9A9E</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ドラガデューン地下1</td></tr>
+<tr><td><code>$9AEC</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ドラガデューン地下2</td></tr>
+<tr><td><code>$9B3A</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: ドラガデューン地下3</td></tr>
+<tr><td><code>$9B88</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: 魔法の砦地下1</td></tr>
+<tr><td><code>$9BD6</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: 魔法の砦地下2</td></tr>
+<tr><td><code>$9C24</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: 森のあばら屋地下1</td></tr>
+<tr><td><code>$9C72</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: 森のあばら屋地下2</td></tr>
+<tr><td><code>$9CC0</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: レイバン砦地下1</td></tr>
+<tr><td><code>$9D0E</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: レイバン砦地下2</td></tr>
+<tr><td><code>$9D5C</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: エルドラド地下1</td></tr>
+<tr><td><code>$9DAA</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: エルドラド地下2</td></tr>
+<tr><td><code>$9DF8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: エルドラド地下3</td></tr>
+<tr><td><code>$9E46</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: エルドラド地下4</td></tr>
+<tr><td><code>$9E94</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: アストラル世界</td></tr>
+<tr><td><code>$9EE2</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>: イドの迷宮</td></tr>
+<tr><td><code>$9F30-$9FFF</code></td><td>(未使用)</td></tr>
+</tbody></table>
+</body>
+</html>

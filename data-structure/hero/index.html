@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -データ構造 -味方キャラ構造体</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/">データ構造</a>
+            
+            </header>
+
+    <h1>味方キャラ構造体</h1>
+
+    <h2 id="gai-yao">概要</h2>
+<p>味方キャラ構造体は 0x70 バイトで、アドレス <code>$6F00</code> から 0x80 バイトアラインメントで味方キャラID順に配置されている:</p>
+<ul>
+<li>味方キャラID 0: <code>$6F00-$6F6F</code></li>
+<li>味方キャラID 1: <code>$6F80-$6FEF</code></li>
+<li>...</li>
+<li>味方キャラID 15: <code>$7680-$76EF</code></li>
+</ul>
+<p>多くの場合、これらの味方キャラ構造体は直接操作されるのではなく、バッファ <code>$0A-$79</code> にコピーしたものが操作され、その結果がまとめて書き戻されている。</p>
+<p>味方キャラ構造体の一部のフィールドは主人公 (味方キャラID 0) 専用で、これらのフィールドについては前述のバッファにコピーされる際に主人公のもので上書きされ、バッファから書き戻される際も主人公の構造体にコピーされる。</p>
+<p>味方キャラ構造体の内容は以下の通り:</p>
+<table><thead><tr><th>offset</th><th>型</th><th>内容</th></tr></thead><tbody>
+<tr><td>0x00</td><td><code>u8</code></td><td>性別 (1:男, 2:女)</td></tr>
+<tr><td>0x01</td><td><code>u8</code></td><td>性格 (永続) (1:善, 2:悪, 3:中立)</td></tr>
+<tr><td>0x02</td><td><code>u8</code></td><td>性格 (一時的) (1:善, 2:悪, 3:中立)</td></tr>
+<tr><td>0x03</td><td><code>u8</code></td><td>種族 (1:人間, 2:エルフ, 3:ドワーフ, 4:ノーム, 5:半オーク)</td></tr>
+<tr><td>0x04</td><td><code>u8</code></td><td>職業 (1:騎士, 2:戦士, 3:弓使い, 4:僧侶, 5:魔法使い, 6:盗賊)</td></tr>
+<tr><td>0x05</td><td><code>u8</code></td><td>知性 (永続)</td></tr>
+<tr><td>0x06</td><td><code>u8</code></td><td>知性 (一時的)</td></tr>
+<tr><td>0x07</td><td><code>u8</code></td><td>力 (永続)</td></tr>
+<tr><td>0x08</td><td><code>u8</code></td><td>力 (一時的)</td></tr>
+<tr><td>0x09</td><td><code>u8</code></td><td>魅力 (永続)</td></tr>
+<tr><td>0x0A</td><td><code>u8</code></td><td>魅力 (一時的)</td></tr>
+<tr><td>0x0B</td><td><code>u8</code></td><td>耐久 (永続)</td></tr>
+<tr><td>0x0C</td><td><code>u8</code></td><td>耐久 (一時的)</td></tr>
+<tr><td>0x0D</td><td><code>u8</code></td><td>素早さ (永続)</td></tr>
+<tr><td>0x0E</td><td><code>u8</code></td><td>素早さ (一時的)</td></tr>
+<tr><td>0x0F</td><td><code>u8</code></td><td>技能 (永続)</td></tr>
+<tr><td>0x10</td><td><code>u8</code></td><td>技能 (一時的)</td></tr>
+<tr><td>0x11</td><td><code>u8</code></td><td>幸運 (永続)</td></tr>
+<tr><td>0x12</td><td><code>u8</code></td><td>幸運 (一時的)</td></tr>
+<tr><td>0x13</td><td><code>u8</code></td><td>レベル (永続)</td></tr>
+<tr><td>0x14</td><td><code>u8</code></td><td>レベル (一時的)</td></tr>
+<tr><td>0x15</td><td><code>u8</code></td><td>年齢</td></tr>
+<tr><td>0x16</td><td><code>u8</code></td><td>休息した回数 (値が 100 のとき休息すると 1 歳加齢し、値が 0 に戻る)</td></tr>
+<tr><td>0x17</td><td><code>u32le</code></td><td>経験値 (<span class="note">注意</span>: しばしば <code>u24</code> として扱われる(最上位バイトが無視される))</td></tr>
+<tr><td>0x1B</td><td><code>u16le</code></td><td>現在MP</td></tr>
+<tr><td>0x1D</td><td><code>u16le</code></td><td>最大MP</td></tr>
+<tr><td>0x1F</td><td><code>u8</code></td><td>魔法レベル (永続)</td></tr>
+<tr><td>0x20</td><td><code>u8</code></td><td>魔法レベル (一時的)</td></tr>
+<tr><td>0x21</td><td><code>u16le</code></td><td>GEM</td></tr>
+<tr><td>0x23</td><td><code>u16le</code></td><td>現在HP</td></tr>
+<tr><td>0x25</td><td><code>u16le</code></td><td>最大HP (永続)</td></tr>
+<tr><td>0x27</td><td><code>u16le</code></td><td>最大HP (一時的)</td></tr>
+<tr><td>0x29</td><td><code>u32le</code></td><td>GOLD (<span class="note">注意</span>: しばしば <code>u24</code> として扱われる(最上位バイトが無視される))</td></tr>
+<tr><td>0x2D</td><td><code>u8</code></td><td>AC (補正前)</td></tr>
+<tr><td>0x2E</td><td><code>u8</code></td><td>AC (補正後)</td></tr>
+<tr><td>0x2F</td><td><code>u8</code></td><td>FOOD</td></tr>
+<tr><td>0x30</td><td><code>u8</code></td><td>状態異常</td></tr>
+<tr><td>0x31</td><td><code>u8[6]</code></td><td>装備品の<a href="https://taotao54321.github.io/MightAndMagicJResource/item/#table">アイテムID</a>配列</td></tr>
+<tr><td>0x37</td><td><code>u8[6]</code></td><td>バックパックの<a href="https://taotao54321.github.io/MightAndMagicJResource/item/#table">アイテムID</a>配列</td></tr>
+<tr><td>0x3D</td><td><code>u8[6]</code></td><td>装備品の残りチャージ数配列</td></tr>
+<tr><td>0x43</td><td><code>u8[6]</code></td><td>バックパックの残りチャージ数配列</td></tr>
+<tr><td>0x49</td><td><code>u8</code></td><td>魔法耐性 (永続)</td></tr>
+<tr><td>0x4A</td><td><code>u8</code></td><td>魔法耐性 (一時的)</td></tr>
+<tr><td>0x4B</td><td><code>u8</code></td><td>火耐性 (永続)</td></tr>
+<tr><td>0x4C</td><td><code>u8</code></td><td>火耐性 (一時的)</td></tr>
+<tr><td>0x4D</td><td><code>u8</code></td><td>冷気耐性 (永続)</td></tr>
+<tr><td>0x4E</td><td><code>u8</code></td><td>冷気耐性 (一時的)</td></tr>
+<tr><td>0x4F</td><td><code>u8</code></td><td>電撃耐性 (永続)</td></tr>
+<tr><td>0x50</td><td><code>u8</code></td><td>電撃耐性 (一時的)</td></tr>
+<tr><td>0x51</td><td><code>u8</code></td><td>酸耐性 (永続)</td></tr>
+<tr><td>0x52</td><td><code>u8</code></td><td>酸耐性 (一時的)</td></tr>
+<tr><td>0x53</td><td><code>u8</code></td><td>恐怖耐性 (永続)</td></tr>
+<tr><td>0x54</td><td><code>u8</code></td><td>恐怖耐性 (一時的)</td></tr>
+<tr><td>0x55</td><td><code>u8</code></td><td>毒耐性 (永続)</td></tr>
+<tr><td>0x56</td><td><code>u8</code></td><td>毒耐性 (一時的)</td></tr>
+<tr><td>0x57</td><td><code>u8</code></td><td>眠り耐性 (永続)</td></tr>
+<tr><td>0x58</td><td><code>u8</code></td><td>眠り耐性 (一時的)</td></tr>
+<tr><td>0x59</td><td><code>u8</code></td><td>近接武器ダメージダイス面数</td></tr>
+<tr><td>0x5A</td><td><code>u8</code></td><td>近接武器ダメージダイス追加値</td></tr>
+<tr><td>0x5B</td><td><code>u8</code></td><td>射撃武器ダメージダイス面数</td></tr>
+<tr><td>0x5C</td><td><code>u8</code></td><td>射撃武器ダメージダイス追加値</td></tr>
+<tr><td>0x5D</td><td><code>u8</code></td><td>解錠スキル</td></tr>
+<tr><td>0x5E</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#king_quest">請けている諸侯クエスト</a></td></tr>
+<tr><td>0x5F</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#prisoner-quest-reward-value">囚人解放クエスト報酬決定用の値</a></td></tr>
+<tr><td>0x60</td><td><code>u8</code></td><td>粒度を細かくした性格 (0:完全な善, 16:完全な中立, 32:完全な悪)<br><span class="xxx">実質未使用</span>: <a href="https://taotao54321.github.io/MightAndMagicJResource/tips/unused-alignment-change/">詳細</a></td></tr>
+<tr><td>0x61</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#mainstory-midgame">メインクエスト関連フラグ (序中盤)</a></td></tr>
+<tr><td>0x62</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#prisoner-quest">囚人解放クエスト関連フラグ</a></td></tr>
+<tr><td>0x63</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#beast-quest">ビースト討伐クエスト関連フラグ</a></td></tr>
+<tr><td>0x64</td><td><code>u8</code></td><td><strong>主人公専用</strong>: (未使用)</td></tr>
+<tr><td>0x65</td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#aura-etc">オーラの色など</a></td></tr>
+<tr><td>0x66</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#inspectron-achieved">インスペクトロン王のクエストの達成状況</a></td></tr>
+<tr><td>0x67</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#hacker-achieved">ハッカー王のクエストの達成状況</a></td></tr>
+<tr><td>0x68</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#ironfist-achieved">アイアンフィスト王のクエストの達成状況</a></td></tr>
+<tr><td>0x69</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#inspectron-rewarded">インスペクトロン王のクエストの報酬受け取り状況</a></td></tr>
+<tr><td>0x6A</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#hacker-rewarded">ハッカー王のクエストの報酬受け取り状況</a></td></tr>
+<tr><td>0x6B</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#ironfist-rewarded">アイアンフィスト王のクエストの報酬受け取り状況</a></td></tr>
+<tr><td>0x6C</td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#gained-stats">各地の能力値上昇ポイントの使用状況</a></td></tr>
+<tr><td>0x6D</td><td><code>u8</code></td><td><strong>主人公専用</strong>: <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/#mainstory-endgame">メインクエスト関連フラグ (終盤)</a></td></tr>
+<tr><td>0x6E</td><td><code>u8</code></td><td>常に 0</td></tr>
+<tr><td>0x6F</td><td><code>u8</code></td><td>滞在している<a href="https://taotao54321.github.io/MightAndMagicJResource/map/">マップID</a></td></tr>
+</tbody></table>
+<h2 id="huirudonoxiang-xi">フィールドの詳細</h2>
+<h3 id="king_quest">offset=0x5E: <strong>主人公専用</strong>: 請けている諸侯クエスト</h3>
+<table><thead><tr><th>値</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>(諸侯クエストを請けていない)</td></tr>
+<tr><td>1</td><td>アイアンフィスト王 1: レイバンの森の要塞を探せ</td></tr>
+<tr><td>2</td><td>アイアンフィスト王 2: 行方不明のキルバーン王を探せ</td></tr>
+<tr><td>3</td><td>アイアンフィスト王 3: ポートスミスの秘密を暴け</td></tr>
+<tr><td>4</td><td>アイアンフィスト王 4: 海賊の秘密の洞窟を探せ</td></tr>
+<tr><td>5</td><td>アイアンフィスト王 5: 行方不明の探検家ジョリー・レイバンを探せ</td></tr>
+<tr><td>6</td><td>アイアンフィスト王 6: 幽霊海賊船アナーキストを滅ぼせ</td></tr>
+<tr><td>7</td><td>アイアンフィスト王 7: レイバンの森の要塞を征服せよ</td></tr>
+<tr><td>8</td><td>インスペクトロン王 1: クイバリングの森にある廃墟を探せ</td></tr>
+<tr><td>9</td><td>インスペクトロン王 2: ブリセス・ピークに登れ</td></tr>
+<tr><td>10</td><td>インスペクトロン王 3: 砂漠の住人たちが取引している品物を手に入れよ</td></tr>
+<tr><td>11</td><td>インスペクトロン王 4: ダスクの下の洞窟でオクザールの神殿を探せ</td></tr>
+<tr><td>12</td><td>インスペクトロン王 5: ドラガデューンのGOLDを経験に変える泉を探せ</td></tr>
+<tr><td>13</td><td>インスペクトロン王 6: レイバンの要塞でクリスタルの謎を解け</td></tr>
+<tr><td>14</td><td>インスペクトロン王 7: 魔法の森の要塞を征服せよ</td></tr>
+<tr><td>15</td><td>ハッカー王: 1: にんにくを持ってこい</td></tr>
+<tr><td>16</td><td>ハッカー王: 2: とりかぶとを持ってこい</td></tr>
+<tr><td>17</td><td>ハッカー王: 3: ベラドンナを持ってこい</td></tr>
+<tr><td>18</td><td>ハッカー王: 4: メデューサの首を持ってこい</td></tr>
+<tr><td>19</td><td>ハッカー王: 5: ウィバーンの目を持ってこい</td></tr>
+<tr><td>20</td><td>ハッカー王: 6: ドラゴンの歯を持ってこい</td></tr>
+<tr><td>21</td><td>ハッカー王: 7: オクリムの指輪を持ってこい</td></tr>
+<tr><td>0xFF</td><td>偽アラマー王: カーメンカのクリプトを探せ (<strong>達成不可能</strong>)</td></tr>
+</tbody></table>
+<h3 id="prisoner-quest-reward-value">offset=0x5F: <strong>主人公専用</strong>: 囚人解放クエスト報酬決定用の値</h3>
+<span class="todo">TODO</span><h3 id="mainstory-midgame">offset=0x61: <strong>主人公専用</strong>: メインクエスト関連フラグ (序中盤)</h3>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>コーラックからアガールへの手紙配達依頼を遂行中</td></tr>
+<tr><td>1</td><td>アガールからテルゴランへの手紙配達依頼を遂行中</td></tr>
+<tr><td>2</td><td>テルゴランからザム/ゾム捜索依頼を請けた</td></tr>
+<tr><td>3</td><td>ゾムからルビーの笛に関するヒントを聞いた</td></tr>
+<tr><td>4</td><td>ザムからルビーの笛に関するヒントを聞いた</td></tr>
+<tr><td>5</td><td>ルビーの笛を入手した</td></tr>
+<tr><td>6</td><td>魔法の砦に入った</td></tr>
+<tr><td>7</td><td>黒白ぶちの犬の青像からキルバーン王の情報を聞いた</td></tr>
+</tbody></table>
+<h3 id="prisoner-quest">offset=0x62: <strong>主人公専用</strong>: 囚人解放クエスト関連フラグ</h3>
+<p><span class="note">囚人に会ったフラグは選択肢 (助ける&#x2F;拷問&#x2F;立ち去る) によらず立つ</span>ので、実際には必ずしも囚人を解放する必要はない。</p>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>ラナローから囚人解放クエストを請けた</td></tr>
+<tr><td>1</td><td>ドラガデューンの城の囚人(床に繋がれた生き物)に会った</td></tr>
+<tr><td>2</td><td>デュームの城の囚人(小さな子供)に会った</td></tr>
+<tr><td>3</td><td>アラマーの城の囚人(美しい少女)に会った</td></tr>
+<tr><td>4</td><td>ホワイトウルフの城の囚人(デモン)に会った</td></tr>
+<tr><td>5</td><td>ブラックリッジノースの囚人(足枷をかけられた男)に会った</td></tr>
+<tr><td>6</td><td>ブラックリッジサウスの囚人(奇妙なコートを着たモンスター)に会った</td></tr>
+<tr><td>7</td><td>審判のジャイアントの秤に乗った (<em>write-only</em>)</td></tr>
+</tbody></table>
+<h3 id="beast-quest">offset=0x63: <strong>主人公専用</strong>: ビースト討伐クエスト関連フラグ</h3>
+<p><span class="note">各ビーストについてはエンカウントしただけでフラグが立つ。</span>倒さずに逃げたりしてもよい。</p>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>海のビーストとエンカウントした</td></tr>
+<tr><td>1</td><td>砂漠のビーストとエンカウントした</td></tr>
+<tr><td>2</td><td>空のビーストとエンカウントした</td></tr>
+<tr><td>3</td><td>森のビーストとエンカウントした</td></tr>
+<tr><td>4-6</td><td>(未使用)</td></tr>
+<tr><td>7</td><td>幸運の車輪に訪れた(回したかどうかは問わない) (<em>write-only</em>)</td></tr>
+</tbody></table>
+<h3 id="aura-etc">offset=0x65: オーラの色など</h3>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0-3</td><td>オーラの色 (0:未決定, 1:赤, 2:青, 3:緑, 4:黄, 5:紫, 6:オレンジ, 7:黒, 8:白, 15:金)</td></tr>
+<tr><td>4-5</td><td>(未使用)</td></tr>
+<tr><td>6</td><td>バーン地上E2のロボットと会話した(会話時にPT先頭の者についてのみフラグが立つ)</td></tr>
+<tr><td>7</td><td>バーン地上A4の老人に自身のオーラの色を正しく答えた (<em>write-only</em>)</td></tr>
+</tbody></table>
+<h3 id="inspectron-achieved">offset=0x66: <strong>主人公専用</strong>: インスペクトロン王のクエストの達成状況</h3>
+<p>クエストを請ける前でも達成フラグは立つ。また、報酬を受け取ったかどうかは無関係。</p>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>クエスト 1 を達成済み (クイバリングの森にある廃墟を探せ)</td></tr>
+<tr><td>1</td><td>クエスト 2 を達成済み (ブリセス・ピークに登れ)</td></tr>
+<tr><td>2</td><td>クエスト 3 を達成済み (砂漠の住人たちが取引している品物を手に入れよ)</td></tr>
+<tr><td>3</td><td>クエスト 4 を達成済み (ダスクの下の洞窟でオクザールの神殿を探せ)</td></tr>
+<tr><td>4</td><td>クエスト 5 を達成済み (ドラガデューンのGOLDを経験に変える泉を探せ)</td></tr>
+<tr><td>5</td><td>クエスト 6 を達成済み (レイバンの要塞でクリスタルの謎を解け)</td></tr>
+<tr><td>6</td><td>クエスト 7 を達成済み (魔法の森の要塞を征服せよ)</td></tr>
+<tr><td>7</td><td>全 7 クエストの報酬を受け取った後、さらにクエストを受注しようとすると 1 になる (<em>write-only</em>)</td></tr>
+</tbody></table>
+<h3 id="hacker-achieved">offset=0x67: <strong>主人公専用</strong>: ハッカー王のクエストの達成状況</h3>
+<p>クエストを請ける前でも達成フラグは立つ。また、報酬を受け取ったかどうかは無関係。</p>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>クエスト 1 を達成済み (にんにくを持ってこい)</td></tr>
+<tr><td>1</td><td>クエスト 2 を達成済み (とりかぶとを持ってこい)</td></tr>
+<tr><td>2</td><td>クエスト 3 を達成済み (ベラドンナを持ってこい)</td></tr>
+<tr><td>3</td><td>クエスト 4 を達成済み (メデューサの首を持ってこい)</td></tr>
+<tr><td>4</td><td>クエスト 5 を達成済み (ウィバーンの目を持ってこい)</td></tr>
+<tr><td>5</td><td>クエスト 6 を達成済み (ドラゴンの歯を持ってこい)</td></tr>
+<tr><td>6</td><td>クエスト 7 を達成済み (オクリムの指輪を持ってこい)</td></tr>
+<tr><td>7</td><td>全 7 クエストの報酬を受け取った後、さらにクエストを受注しようとすると 1 になる (<em>write-only</em>)</td></tr>
+</tbody></table>
+<h3 id="ironfist-achieved">offset=0x68: <strong>主人公専用</strong>: アイアンフィスト王のクエストの達成状況</h3>
+<p>クエストを請ける前でも達成フラグは立つ。また、報酬を受け取ったかどうかは無関係。</p>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>クエスト 1 を達成済み (レイバンの森の要塞を探せ)</td></tr>
+<tr><td>1</td><td>クエスト 2 を達成済み (行方不明の王ロード・キルバーンを探せ)</td></tr>
+<tr><td>2</td><td>クエスト 3 を達成済み (ポートスミスの秘密を暴け)</td></tr>
+<tr><td>3</td><td>クエスト 4 を達成済み (海賊の秘密の洞窟を探せ)</td></tr>
+<tr><td>4</td><td>クエスト 5 を達成済み (行方不明の探検家ジョリー・レイバンを探せ)</td></tr>
+<tr><td>5</td><td>クエスト 6 を達成済み (幽霊海賊船アナーキストを滅ぼせ)</td></tr>
+<tr><td>6</td><td>クエスト 7 を達成済み (レイバンの森の要塞を征服せよ)</td></tr>
+<tr><td>7</td><td>全 7 クエストの報酬を受け取った後、さらにクエストを受注しようとすると 1 になる (<em>write-only</em>)</td></tr>
+</tbody></table>
+<h3 id="inspectron-rewarded">offset=0x69: <strong>主人公専用</strong>: インスペクトロン王のクエストの報酬受け取り状況</h3>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>クエスト 1 の報酬を受け取り済み (クイバリングの森にある廃墟を探せ)</td></tr>
+<tr><td>1</td><td>クエスト 2 の報酬を受け取り済み (ブリセス・ピークに登れ)</td></tr>
+<tr><td>2</td><td>クエスト 3 の報酬を受け取り済み (砂漠の住人たちが取引している品物を手に入れよ)</td></tr>
+<tr><td>3</td><td>クエスト 4 の報酬を受け取り済み (ダスクの下の洞窟でオクザールの神殿を探せ)</td></tr>
+<tr><td>4</td><td>クエスト 5 の報酬を受け取り済み (ドラガデューンのGOLDを経験に変える泉を探せ)</td></tr>
+<tr><td>5</td><td>クエスト 6 の報酬を受け取り済み (レイバンの要塞でクリスタルの謎を解け)</td></tr>
+<tr><td>6</td><td>クエスト 7 の報酬を受け取り済み (魔法の森の要塞を征服せよ)</td></tr>
+<tr><td>7</td><td>全 7 クエストの報酬を受け取った後、さらにクエストを受注しようとすると 1 になる (<em>write-only</em>)</td></tr>
+</tbody></table>
+<h3 id="hacker-rewarded">offset=0x6A: <strong>主人公専用</strong>: ハッカー王のクエストの報酬受け取り状況</h3>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>クエスト 1 の報酬を受け取り済み (にんにくを持ってこい)</td></tr>
+<tr><td>1</td><td>クエスト 2 の報酬を受け取り済み (とりかぶとを持ってこい)</td></tr>
+<tr><td>2</td><td>クエスト 3 の報酬を受け取り済み (ベラドンナを持ってこい)</td></tr>
+<tr><td>3</td><td>クエスト 4 の報酬を受け取り済み (メデューサの首を持ってこい)</td></tr>
+<tr><td>4</td><td>クエスト 5 の報酬を受け取り済み (ウィバーンの目を持ってこい)</td></tr>
+<tr><td>5</td><td>クエスト 6 の報酬を受け取り済み (ドラゴンの歯を持ってこい)</td></tr>
+<tr><td>6</td><td>クエスト 7 の報酬を受け取り済み (オクリムの指輪を持ってこい)</td></tr>
+<tr><td>7</td><td>全 7 クエストの報酬を受け取った後、さらにクエストを受注しようとすると 1 になる (<em>write-only</em>)</td></tr>
+</tbody></table>
+<h3 id="ironfist-rewarded">offset=0x6B: <strong>主人公専用</strong>: アイアンフィスト王のクエストの報酬受け取り状況</h3>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>クエスト 1 の報酬を受け取り済み (レイバンの森の要塞を探せ)</td></tr>
+<tr><td>1</td><td>クエスト 2 の報酬を受け取り済み (行方不明の王ロード・キルバーンを探せ)</td></tr>
+<tr><td>2</td><td>クエスト 3 の報酬を受け取り済み (ポートスミスの秘密を暴け)</td></tr>
+<tr><td>3</td><td>クエスト 4 の報酬を受け取り済み (海賊の秘密の洞窟を探せ)</td></tr>
+<tr><td>4</td><td>クエスト 5 の報酬を受け取り済み (行方不明の探検家ジョリー・レイバンを探せ)</td></tr>
+<tr><td>5</td><td>クエスト 6 の報酬を受け取り済み (幽霊海賊船アナーキストを滅ぼせ)</td></tr>
+<tr><td>6</td><td>クエスト 7 の報酬を受け取り済み (レイバンの森の要塞を征服せよ)</td></tr>
+<tr><td>7</td><td>全 7 クエストの報酬を受け取った後、さらにクエストを受注しようとすると 1 になる (<em>write-only</em>)</td></tr>
+</tbody></table>
+<h3 id="gained-stats">offset=0x6C: 各地の能力値上昇ポイントの使用状況</h3>
+<p>キャラごとに管理されている。</p>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>耐久 +4 の泉を使用済み (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/map-15/#event-12-1">バーン地上A1 (12, 1)</a>)</td></tr>
+<tr><td>1</td><td>魅力 +4 の泉を使用済み (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/map-28/#event-10-12">バーン地上D2 (10, 12)</a>)</td></tr>
+<tr><td>2</td><td>知性 +4 の装置を使用済み (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/map-32/#event-3-13">バーン地上E2 (3, 13)</a>)</td></tr>
+<tr><td>3</td><td>力 +4 の泉を使用済み (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/map-08/#event-0-12">ポートスミスの地下 (0, 12)</a>)</td></tr>
+<tr><td>4</td><td>技能 +4 のプリズムを使用済み (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/map-10/#event-15-15">ダスクの地下 (15, 15)</a>)</td></tr>
+<tr><td>5</td><td>素早さ +4 の炎を使用済み (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/map-10/#event-14-5">ダスクの地下 (14, 5)</a>)</td></tr>
+<tr><td>6</td><td>幸運 +4 のクローバーを使用済み (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/map-40/#event-1-1">ドラガデューンの城 (1, 1)</a>)</td></tr>
+<tr><td>7</td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/map/map-43/#event-12-0">南のクレリック</a>に能力値上昇ポイント使用権を復活させてもらうと 1 になる (<em>write-only</em>)</td></tr>
+</tbody></table>
+<h3 id="mainstory-endgame">offset=0x6D: <strong>主人公専用</strong>: メインクエスト関連フラグ (終盤)</h3>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>アストラル世界 第1の封印解除済み</td></tr>
+<tr><td>1</td><td>アストラル世界 第2の封印解除済み</td></tr>
+<tr><td>2</td><td>アストラル世界 第3の封印解除済み</td></tr>
+<tr><td>3</td><td>アストラル世界 第4の封印解除済み</td></tr>
+<tr><td>4</td><td>アストラル世界 第5の封印解除済み</td></tr>
+<tr><td>5</td><td>(未使用)</td></tr>
+<tr><td>6</td><td>イドの迷宮クリア済み</td></tr>
+<tr><td>7</td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/map/map-19/#event-4-15">世界の果て</a>からエンディングに行ける</td></tr>
+</tbody></table>
+</body>
+</html>

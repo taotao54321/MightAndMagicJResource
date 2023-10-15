@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -PRG-ROM -PRG 26</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/prg/">PRG-ROM</a>
+            
+            </header>
+
+    <h1>PRG 26</h1>
+
+    <p>論理アドレス <code>$8000-$9FFF</code> にマップされるセグメント。</p>
+<p>以下のマップデータを格納している:</p>
+<ul>
+<li>バーン地上A3</li>
+<li>バーン地上A4</li>
+<li>バーン地上B1</li>
+<li>バーン地上B2</li>
+<li>バーン地上B3</li>
+<li>バーン地上B4</li>
+<li>バーン地上C1</li>
+<li>バーン地上C2</li>
+<li>バーン地上C3</li>
+<li>バーン地上C4</li>
+<li>バーン地上D1</li>
+<li>バーン地上D2</li>
+<li>バーン地上D3</li>
+<li>バーン地上D4</li>
+<li>バーン地上E1</li>
+<li>バーン地上E2</li>
+</ul>
+<h2 id="memorimatupu">メモリマップ</h2>
+<table><thead><tr><th>アドレス</th><th>内容</th></tr></thead><tbody>
+<tr><td><code>$8000</code></td><td>バーン地上A3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8100</code></td><td>バーン地上A3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8200</code></td><td>バーン地上A4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8300</code></td><td>バーン地上A4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8400</code></td><td>バーン地上B1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8500</code></td><td>バーン地上B1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8600</code></td><td>バーン地上B2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8700</code></td><td>バーン地上B2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8800</code></td><td>バーン地上B3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8900</code></td><td>バーン地上B3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8A00</code></td><td>バーン地上B4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8B00</code></td><td>バーン地上B4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8C00</code></td><td>バーン地上C1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8D00</code></td><td>バーン地上C1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$8E00</code></td><td>バーン地上C2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$8F00</code></td><td>バーン地上C2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9000</code></td><td>バーン地上C3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9100</code></td><td>バーン地上C3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9200</code></td><td>バーン地上C4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9300</code></td><td>バーン地上C4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9400</code></td><td>バーン地上D1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9500</code></td><td>バーン地上D1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9600</code></td><td>バーン地上D2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9700</code></td><td>バーン地上D2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9800</code></td><td>バーン地上D3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9900</code></td><td>バーン地上D3 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9A00</code></td><td>バーン地上D4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9B00</code></td><td>バーン地上D4 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9C00</code></td><td>バーン地上E1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9D00</code></td><td>バーン地上E1 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td><code>$9E00</code></td><td>バーン地上E2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$9F00</code></td><td>バーン地上E2 <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -データ構造 -モンスターデータ構造体</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/">データ構造</a>
+            
+            </header>
+
+    <h1>モンスターデータ構造体</h1>
+
+    <p>モンスターデータ構造体は 17 バイトで、<a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-12/">PRG 12</a> 内に格納されている。</p>
+<p>モンスターデータ構造体は ROM 内から直接参照されるのではなく、現在見ているモンスターのデータをバッファ <code>$03C4-$03D4</code> にコピーしたものが参照される。</p>
+<p>モンスターデータ構造体の内容は以下の通り:</p>
+<table><thead><tr><th>offset</th><th>型</th><th>内容</th></tr></thead><tbody>
+<tr><td>0</td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/composition/">敵編成処理</a>でランダム敵として追加される際の 1 回あたりの個体数上限</td></tr>
+<tr><td>1</td><td><code>u8</code></td><td>友好度</td></tr>
+<tr><td>2</td><td><code>u8</code></td><td>基本HP (出現時に <code>rand(1..=8)</code> が加算される)</td></tr>
+<tr><td>3</td><td><code>u8</code></td><td>AC</td></tr>
+<tr><td>4</td><td><code>u8</code></td><td><span class="todo">TODO</span></td></tr>
+<tr><td>5</td><td><code>u8</code></td><td>力</td></tr>
+<tr><td>6</td><td><code>u8</code></td><td>素早さ</td></tr>
+<tr><td>7</td><td><code>u16le</code></td><td>経験値</td></tr>
+<tr><td>9</td><td><code>u8</code></td><td><span class="todo">TODO</span></td></tr>
+<tr><td>10</td><td><code>u8</code></td><td>bit0-6:魔法無効化力, bit7:不死系フラグ</td></tr>
+<tr><td>11</td><td><code>u8</code></td><td><span class="todo">TODO</span></td></tr>
+<tr><td>12</td><td><code>u8</code></td><td><span class="todo">TODO</span></td></tr>
+<tr><td>13</td><td><code>u8</code></td><td><span class="todo">TODO</span></td></tr>
+<tr><td>14</td><td><code>u8</code></td><td><span class="todo">TODO</span></td></tr>
+<tr><td>15</td><td><code>u8</code></td><td><span class="todo">TODO</span></td></tr>
+<tr><td>16</td><td><code>u8</code></td><td>ビジュアルID</td></tr>
+</tbody></table>
+</body>
+</html>

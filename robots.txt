@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+Allow: /
+Sitemap: https://taotao54321.github.io/MightAndMagicJResource/sitemap.xml

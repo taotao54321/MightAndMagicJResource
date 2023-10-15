@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -RAM</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+            </header>
+
+    <h1>RAM</h1>
+
+    <p>本体内蔵 RAM に加え、カートリッジ側に Save RAM (<code>$6000-$7FFF</code>) が存在する。Save RAM は起動直後から常時有効化されている。</p>
+<h2 id="map">メモリマップ</h2>
+<table><thead><tr><th>アドレス</th><th>型</th><th>内容</th></tr></thead><tbody>
+<tr><td><code>$00-$05</code></td><td></td><td>雑用</td></tr>
+<tr><td><code>$06-$07</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$08-$09</code></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0A</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a>操作用バッファ</td></tr>
+<tr><td><code>$7A</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$7B</code></td><td></td><td>雑用</td></tr>
+<tr><td><code>$7C</code></td><td></td><td>オーディオドライバ関連</td></tr>
+<tr><td><code>$7D</code></td><td></td><td>オーディオドライバ関連</td></tr>
+<tr><td><code>$7E</code></td><td><code>u8</code></td><td>音楽の再生制御用</td></tr>
+<tr><td><code>$7F</code></td><td><code>u8</code></td><td>音楽ID</td></tr>
+<tr><td><code>$80-</code></td><td></td><td>オーディオドライバ関連</td></tr>
+<tr><td><code>$8B-$9C</code></td><td><code>u8[18]</code></td><td>PTバフ配列</td></tr>
+<tr><td><code>$8B-$91</code></td><td><code>u8[7]</code></td><td>PTバフ: 各種耐性</td></tr>
+<tr><td><code>$8B</code></td><td><code>u8</code></td><td>PTバフ: 恐怖耐性</td></tr>
+<tr><td><code>$8C</code></td><td><code>u8</code></td><td>PTバフ: 冷気耐性</td></tr>
+<tr><td><code>$8D</code></td><td><code>u8</code></td><td>PTバフ: 火耐性</td></tr>
+<tr><td><code>$8E</code></td><td><code>u8</code></td><td>PTバフ: 毒耐性</td></tr>
+<tr><td><code>$8F</code></td><td><code>u8</code></td><td>PTバフ: 酸耐性</td></tr>
+<tr><td><code>$90</code></td><td><code>u8</code></td><td>PTバフ: 電撃耐性</td></tr>
+<tr><td><code>$91</code></td><td><code>u8</code></td><td>PTバフ: 魔法耐性</td></tr>
+<tr><td><code>$92</code></td><td><code>u8</code></td><td>PTバフ: 光源値</td></tr>
+<tr><td><code>$93</code></td><td><code>u8</code></td><td>PTバフ: 「バリア」(0:false, 非0:true)</td></tr>
+<tr><td><code>$94</code></td><td><code>u8</code></td><td>PTバフ: 「予知能力」(0:false, 非0:true)</td></tr>
+<tr><td><code>$95</code></td><td><code>u8</code></td><td>PTバフ: 「水上歩行」(0:false, 非0:true)</td></tr>
+<tr><td><code>$96</code></td><td><code>u8</code></td><td>PTバフ: 「幻の犬」(0:false, 非0:true)</td></tr>
+<tr><td><code>$97</code></td><td><code>u8</code></td><td>PTバフ: 「精神防御」(0:false, 非0:true)</td></tr>
+<tr><td><code>$98</code></td><td><code>u8</code></td><td>PTバフ: 「神の祝福」(0:false, 非0:true)</td></tr>
+<tr><td><code>$99</code></td><td><code>u8</code></td><td>PTバフ: 「透明フィールド」(0:false, 非0:true)</td></tr>
+<tr><td><code>$9A</code></td><td><code>u8</code></td><td>PTバフ: 「空中シールド」(0:false, 非0:true)</td></tr>
+<tr><td><code>$9B</code></td><td><code>u8</code></td><td>PTバフ: 「パワーシールド」(0:false, 非0:true)</td></tr>
+<tr><td><code>$9C</code></td><td><code>u8</code></td><td>PTバフ: 「呪いの消去」<br><span class="xxx">実質デバフ</span></td></tr>
+<tr><td><code>$9D</code></td><td><code>u8</code></td><td>予約イベント</td></tr>
+<tr><td><code>$9E</code></td><td><code>u8</code></td><td>現在の<a href="https://taotao54321.github.io/MightAndMagicJResource/map/">マップID</a></td></tr>
+<tr><td><code>$9F</code></td><td><code>u8</code></td><td>現在のマップ内座標x (<code>0..=15</code>)</td></tr>
+<tr><td><code>$A0</code></td><td><code>u8</code></td><td>現在のマップ内座標y (<code>0..=15</code>)</td></tr>
+<tr><td><code>$A1</code></td><td><code>u8</code></td><td>現在のマップ内座標を <code>u8</code> に pack した値 (bit0-3:座標x, bit4-7:座標y)</td></tr>
+<tr><td><code>$A2</code></td><td><code>u8</code></td><td>現在のPTの向きに対して前方の<a href="https://taotao54321.github.io/MightAndMagicJResource/ram/#direction">方角</a></td></tr>
+<tr><td><code>$A3</code></td><td><code>u8</code></td><td>現在のPTの向きに対して右の<a href="https://taotao54321.github.io/MightAndMagicJResource/ram/#direction">方角</a></td></tr>
+<tr><td><code>$A4</code></td><td><code>u8</code></td><td>現在のPTの向きに対して後方の<a href="https://taotao54321.github.io/MightAndMagicJResource/ram/#direction">方角</a></td></tr>
+<tr><td><code>$A5</code></td><td><code>u8</code></td><td>現在のPTの向きに対して左の<a href="https://taotao54321.github.io/MightAndMagicJResource/ram/#direction">方角</a></td></tr>
+<tr><td><code>$A6</code></td><td><code>u8</code></td><td>PTの人数 (<code>1..=6</code>)</td></tr>
+<tr><td><code>$A7-$AC</code></td><td><code>u8</code></td><td>各PTキャラの<a href="https://taotao54321.github.io/MightAndMagicJResource/hero/#table">味方キャラID</a> (隊列順)</td></tr>
+<tr><td><code>$AD</code></td><td><code>u8</code></td><td>お宝関連</td></tr>
+<tr><td><code>$AE</code></td><td><code>u8</code></td><td>お宝関連</td></tr>
+<tr><td><code>$AF-$B4</code></td><td><code>u8[6]</code></td><td>お宝の中身</td></tr>
+<tr><td><code>$AF-$B1</code></td><td><code>u8[3]</code></td><td>お宝の中身のアイテムID配列</td></tr>
+<tr><td><code>$B2</code></td><td><code>u16le</code></td><td>お宝の中身のGOLD</td></tr>
+<tr><td><code>$B4</code></td><td><code>u8</code></td><td>お宝の中身のGEM</td></tr>
+<tr><td><code>$B5</code></td><td><code>u8</code></td><td>戦闘: 生きている敵の個体数 (<code>0..=15</code>)</td></tr>
+<tr><td><code>$B6-$C4</code></td><td><code>u8[15]</code></td><td>戦闘: 各敵キャラのモンスターランク</td></tr>
+<tr><td><code>$C5-$D3</code></td><td><code>u8[15]</code></td><td>戦闘: 各敵キャラのモンスターランク内ID</td></tr>
+<tr><td><code>$D4</code></td><td><code>u8</code></td><td>戦闘: 敵軍の「強さ」</td></tr>
+<tr><td><code>$D5</code></td><td></td><td>(<em>write-only</em>)</td></tr>
+<tr><td><code>$D6-</code></td><td></td><td>オーディオドライバ関連</td></tr>
+<tr><td><code>$E2-$E6</code></td><td></td><td>雑用</td></tr>
+<tr><td><code>$E7-$EE</code></td><td></td><td>イベント処理雑用 (マップを出入りするたびにゼロクリアされる)</td></tr>
+<tr><td><code>$EF-$F2</code></td><td></td><td>雑用</td></tr>
+<tr><td><code>$F3-</code></td><td></td><td>オーディオドライバ関連</td></tr>
+<tr><td><code>$0100-$01FF</code></td><td></td><td>スタック領域</td></tr>
+<tr><td><code>$0200</code></td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/ram/#input">入力</a>処理用</td></tr>
+<tr><td><code>$0201</code></td><td><code>u8</code></td><td>前回の1P生<a href="https://taotao54321.github.io/MightAndMagicJResource/ram/#input">入力</a> (注意: 複数ルーチンで使い回されている)</td></tr>
+<tr><td><code>$0202</code></td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/ram/#input">入力</a>処理用</td></tr>
+<tr><td><code>$0203</code></td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/ram/#input">入力</a>処理用</td></tr>
+<tr><td><code>$0204</code></td><td><code>ptr</code></td><td>現在の IRQ ハンドラ</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0244-$0245</code></td><td></td><td>雑用</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0248-$024F</code></td><td></td><td>雑用</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0275</code></td><td><code>u8</code></td><td>現在のマップがバーン地上かどうか (0:false, 1:true)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$02A8-$02B2</code></td><td><code>u8[11]</code></td><td>現在見ている<a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/item-data/">アイテムデータ</a></td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$02CC-$02D0</code></td><td></td><td>雑用</td></tr>
+<tr><td><code>$02D1</code></td><td><code>u8</code></td><td>現在位置の周囲 4 方向の境界</td></tr>
+<tr><td><code>$02D2</code></td><td><code>u8</code></td><td>現在位置のマスの各種フラグ</td></tr>
+<tr><td><code>$02D3</code></td><td><code>u8</code></td><td>現在のPTの向きに対して前方の境界 (<code>0..=3</code>)</td></tr>
+<tr><td><code>$02D4</code></td><td><code>u8</code></td><td>現在のPTの向きに対して前方が通行不可かどうか (0:false, 非0:true)</td></tr>
+<tr><td><code>$02D5</code></td><td><code>u8</code></td><td>現在のPTの向きに対して後方の境界 (<code>0..=3</code>)</td></tr>
+<tr><td><code>$02D6</code></td><td><code>u8</code></td><td>現在のPTの向きに対して後方が通行不可かどうか (0:false, 非0:true)</td></tr>
+<tr><td><code>$02D7</code></td><td></td><td>(<em>write-only</em>)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0305</code></td><td></td><td>雑用</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0366</code></td><td></td><td>雑用</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0393-$0394</code></td><td></td><td>雑用</td></tr>
+<tr><td><code>$0395</code></td><td><code>u8</code></td><td>徘徊エンカウント発生フラグ (0:false, 1:true)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$039A</code></td><td><code>u8</code></td><td>先制値 (<a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/preemptive/">先制判定/処理</a>参照)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$039C-$039D</code></td><td></td><td>雑用</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$03A2</code></td><td></td><td>雑用</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$03C4-$03D4</code></td><td><code>u8[17]</code></td><td>現在見ている<a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/monster-data/">モンスターデータ</a></td></tr>
+<tr><td><code>$03D5</code></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$03D6</code></td><td><code>u16le</code></td><td>自軍の「強さ」</td></tr>
+<tr><td><code>$03D8</code></td><td><code>u16le</code></td><td>主人公の「強さ」</td></tr>
+<tr><td><code>$03DA</code></td><td><code>u8</code></td><td>戦闘: エンカウント直後の敵軍のモンスターランク最大値</td></tr>
+<tr><td><code>$03DB</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$03DC</code></td><td><code>u8</code></td><td>戦闘: 敵軍の友好度</td></tr>
+<tr><td><code>$03DD</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$03DE</code></td><td><code>u8</code></td><td>戦闘前フェイズでの選択による性格変更フラグ (0:false, 1:true)<br><span class="xxx">実質未使用</span>: <a href="https://taotao54321.github.io/MightAndMagicJResource/tips/unused-alignment-change/">詳細</a></td></tr>
+<tr><td><code>$03DF</code></td><td><code>u8</code></td><td>最後に追加されたランダム敵のモンスターランク<br><span class="xxx">本来は多用途の雑用変数と思われる</span></td></tr>
+<tr><td><code>$03E0-$03E3</code></td><td></td><td>雑用</td></tr>
+<tr><td><code>$03E4-$03E9</code></td><td><code>u8[6]</code></td><td>戦闘: 各味方が近接攻撃可能かどうか (0:false, 1:true)</td></tr>
+<tr><td><code>$03EA-$03EF</code></td><td><code>u8[6]</code></td><td>戦闘: 各味方がこのターンの行動を終えたかどうか (0:false, 1:true)</td></tr>
+<tr><td><code>$03F0-$03FE</code></td><td><code>u8[15]</code></td><td>戦闘: 各敵の現在HP</td></tr>
+<tr><td><code>$03FF</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$0400-$040E</code></td><td><code>u8[15]</code></td><td>戦闘: 各敵のAC</td></tr>
+<tr><td><code>$040F</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$0410-$041E</code></td><td><code>u8[15]</code></td><td>戦闘: 各敵の状態異常</td></tr>
+<tr><td><code>$041F</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$0420-$042E</code></td><td><code>u8[15]</code></td><td>戦闘: 各敵がこのターンの行動を終えたかどうか (0:false, 1:true)</td></tr>
+<tr><td><code>$042F</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$0430</code></td><td></td><td>雑用</td></tr>
+<tr><td><code>$0431</code></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0432</code></td><td><code>u8</code></td><td>戦闘: 敵前衛の個体数</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0439</code></td><td><code>u8</code></td><td>戦闘: 現在の味方の行動が射撃かどうか (0:false, 1:true)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0442</code></td><td><code>u8</code></td><td>戦闘: ターン数 (最初のターン開始時が 1)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$044F</code></td><td><code>u8</code></td><td>戦闘: この戦闘で僧ML1「退散」を既に使ったか (0:false, 1:true)</td></tr>
+<tr><td><code>$0450</code></td><td><code>u8</code></td><td>戦闘: この戦闘で僧ML7「神の声」を既に使ったか (0:false, 1:true)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0457-$045C</code></td><td><code>u8[6]</code></td><td>戦闘: 各味方の素早さ</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0461-$0466</code></td><td><code>u8[6]</code></td><td>戦闘: 各味方の状態異常</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0472-$0473</code></td><td></td><td>雑用</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$047D-$0482</code></td><td></td><td>雑用</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$04A3</code></td><td></td><td>雑用</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$050B</code></td><td><code>u8</code></td><td>戦闘: オート戦闘中かどうか (0:false, 1:true)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0523</code></td><td><code>u8[2]</code></td><td>乱数生成器の内部状態</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$061A</code></td><td><code>u8</code></td><td>現在位置が暗闇かどうか (0:false, 1:true)</td></tr>
+<tr><td><code>$061B</code></td><td></td><td>(<em>write-only</em>)</td></tr>
+<tr><td><code>$061C</code></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$061D</code></td><td></td><td>雑用</td></tr>
+<tr><td><code>$061E</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$061F-$0621</code></td><td></td><td>雑用</td></tr>
+<tr><td><code>$0622-$0624</code></td><td></td><td>(<em>write-only</em>)</td></tr>
+<tr><td><code>$062B</code></td><td></td><td>イベント処理雑用 (マップを出入りするたびにゼロクリアされる)</td></tr>
+<tr><td><code>$062C-$062D</code></td><td></td><td>(<em>write-only</em>) (マップを出入りするたびにゼロクリアされる)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0643-$0651</code></td><td><code>u8[15]</code></td><td>戦闘: 各敵の素早さ</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$0654</code></td><td></td><td>イベント処理雑用 (マップを出入りするたびにゼロクリアされる)</td></tr>
+<tr><td><code>$0655-$0656</code></td><td></td><td>(<em>write-only</em>) (マップを出入りするたびにゼロクリアされる)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$067E</code></td><td><code>ptr</code></td><td>現在の NMI ハンドラ</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$6000-$6001</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$6002-$6005</code></td><td><code>u8[4]</code></td><td>SRAM が初期化済みであることを示す magic 文字列 (&quot;NEMU&quot;)</td></tr>
+<tr><td><code>$6006-$600F</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$6010-$6150</code></td><td>code</td><td>PPU へのデータ転送用コード (64 個の <code>lda #n, sta $2007</code> が並び、<code>rts</code> で終端)</td></tr>
+<tr><td><code>$6151</code></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$6152-$6154</code></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$6155-$6156</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$6157</code></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$6158</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$6159</code></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$615A</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$615B-</code></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$615D-$617C</code></td><td><code>u8[0x20]</code></td><td>現在のパレット</td></tr>
+<tr><td><code>$617D-$617F</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$6180-$61BF</code></td><td><code>u8[0x40]</code></td><td>現在の<a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-metadata/">マップメタデータ</a>(マップ名除く)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$6200-$62FF</code></td><td><code>u8[0x100]</code></td><td>現在のマップの<a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-boundarys/">マップ境界配列</a></td></tr>
+<tr><td><code>$6300-$63FF</code></td><td><code>u8[0x100]</code></td><td>現在のマップの<a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/place-flags/">マップ各種フラグ配列</a></td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$6430-$6463</code></td><td><code>u8[52]</code></td><td>オートマッピング可能な全マップに対する踏破済みフラグ配列のチェックサム (XOR 総和)</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$6880-$689F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ソーピガルの町</td></tr>
+<tr><td><code>$68A0-$68BF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ポートスミスの町</td></tr>
+<tr><td><code>$68C0-$68DF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: アルガリーの町</td></tr>
+<tr><td><code>$68E0-$68FF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ダスクの町</td></tr>
+<tr><td><code>$6900-$691F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: エルキューンの町</td></tr>
+<tr><td><code>$6920-$693F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ソーピガルの地下</td></tr>
+<tr><td><code>$6940-$695F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ノーザンバリアー洞穴</td></tr>
+<tr><td><code>$6960-$697F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ポートスミスの地下</td></tr>
+<tr><td><code>$6980-$699F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: エルキューンの地下</td></tr>
+<tr><td><code>$69A0-$69BF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ダスクの地下</td></tr>
+<tr><td><code>$69C0-$69DF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: コリンブルッフ洞穴</td></tr>
+<tr><td><code>$69E0-$69FF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ボルカノ神殿</td></tr>
+<tr><td><code>$6A00-$6A1F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: 鷹の目洞穴</td></tr>
+<tr><td><code>$6A20-$6A3F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ホワイトウルフ洞穴</td></tr>
+<tr><td></td><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$6CC0-$6CDF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: デュームの城</td></tr>
+<tr><td><code>$6CE0-$6CFF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ホワイトウルフの城</td></tr>
+<tr><td><code>$6D00-$6D1F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: アラマーの城</td></tr>
+<tr><td><code>$6D20-$6D3F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ブラックリッジノース</td></tr>
+<tr><td><code>$6D40-$6D5F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ブラックリッジサウス</td></tr>
+<tr><td><code>$6D60-$6D7F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ドラガデューンの城</td></tr>
+<tr><td><code>$6D80-$6D9F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ドラガデューン地下1</td></tr>
+<tr><td><code>$6DA0-$6DBF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ドラガデューン地下2</td></tr>
+<tr><td><code>$6DC0-$6DDF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: ドラガデューン地下3</td></tr>
+<tr><td><code>$6DE0-$6DFF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: 魔法の砦地下1</td></tr>
+<tr><td><code>$6E00-$6E1F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: 魔法の砦地下2</td></tr>
+<tr><td><code>$6E20-$6E3F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: 森のあばら屋地下1</td></tr>
+<tr><td><code>$6E40-$6E5F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: 森のあばら屋地下2</td></tr>
+<tr><td><code>$6E60-$6E7F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: レイバン砦地下1</td></tr>
+<tr><td><code>$6E80-$6E9F</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: レイバン砦地下2</td></tr>
+<tr><td><code>$6EA0-$6EBF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: エルドラド地下1</td></tr>
+<tr><td><code>$6EC0-$6EDF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: エルドラド地下2</td></tr>
+<tr><td><code>$6EE0-$6EFF</code></td><td><code>u8[32]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/automap/">踏破済みフラグ配列</a>: エルドラド地下3</td></tr>
+<tr><td><code>$6F00-$6F6F</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=0)</td></tr>
+<tr><td><code>$6F70</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$6F71-$6F76</code></td><td><code>u8[6]</code></td><td>各PTキャラの<a href="https://taotao54321.github.io/MightAndMagicJResource/hero/#table">味方キャラID</a>のセーブ/ロード用バッファ</td></tr>
+<tr><td><code>$6F77</code></td><td><code>u8</code></td><td>PT人数のセーブ/ロード用バッファ</td></tr>
+<tr><td><code>$6F78-$6F7E</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$6F7F</code></td><td><code>u8</code></td><td><code>$6F00-$6F7E</code> のチェックサム</td></tr>
+<tr><td><code>$6F80-$6FEF</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=1)</td></tr>
+<tr><td><code>$6FF0-$6FFE</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$6FFF</code></td><td><code>u8</code></td><td><code>$6F80-$6FFE</code> のチェックサム</td></tr>
+<tr><td><code>$7000-$706F</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=2)</td></tr>
+<tr><td><code>$7070-$707E</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$707F</code></td><td><code>u8</code></td><td><code>$7000-$707E</code> のチェックサム</td></tr>
+<tr><td><code>$7080-$70EF</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=3)</td></tr>
+<tr><td><code>$70F0-$70FE</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$70FF</code></td><td><code>u8</code></td><td><code>$7080-$70FE</code> のチェックサム</td></tr>
+<tr><td><code>$7100-$716F</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=4)</td></tr>
+<tr><td><code>$7170-$717E</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$717F</code></td><td><code>u8</code></td><td><code>$7100-$717E</code> のチェックサム</td></tr>
+<tr><td><code>$7180-$71EF</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=5)</td></tr>
+<tr><td><code>$71F0-$71FE</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$71FF</code></td><td><code>u8</code></td><td><code>$7180-$71FE</code> のチェックサム</td></tr>
+<tr><td><code>$7200-$726F</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=6)</td></tr>
+<tr><td><code>$7270-$727E</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$727F</code></td><td><code>u8</code></td><td><code>$7200-$727E</code> のチェックサム</td></tr>
+<tr><td><code>$7280-$72EF</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=7)</td></tr>
+<tr><td><code>$72F0-$72FE</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$72FF</code></td><td><code>u8</code></td><td><code>$7280-$72FE</code> のチェックサム</td></tr>
+<tr><td><code>$7300-$736F</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=8)</td></tr>
+<tr><td><code>$7370-$737E</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$737F</code></td><td><code>u8</code></td><td><code>$7300-$737E</code> のチェックサム</td></tr>
+<tr><td><code>$7380-$73EF</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=9)</td></tr>
+<tr><td><code>$73F0-$73FE</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$73FF</code></td><td><code>u8</code></td><td><code>$7380-$73FE</code> のチェックサム</td></tr>
+<tr><td><code>$7400-$746F</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=10)</td></tr>
+<tr><td><code>$7470-$747E</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$747F</code></td><td><code>u8</code></td><td><code>$7400-$747E</code> のチェックサム</td></tr>
+<tr><td><code>$7480-$74EF</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=11)</td></tr>
+<tr><td><code>$74F0-$74FE</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$74FF</code></td><td><code>u8</code></td><td><code>$7480-$74FE</code> のチェックサム</td></tr>
+<tr><td><code>$7500-$756F</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=12)</td></tr>
+<tr><td><code>$7570-$757E</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$757F</code></td><td><code>u8</code></td><td><code>$7500-$757E</code> のチェックサム</td></tr>
+<tr><td><code>$7580-$75EF</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=13)</td></tr>
+<tr><td><code>$75F0-$75FE</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$75FF</code></td><td><code>u8</code></td><td><code>$7580-$75FE</code> のチェックサム</td></tr>
+<tr><td><code>$7600-$766F</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=14)</td></tr>
+<tr><td><code>$7670-$767E</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$767F</code></td><td><code>u8</code></td><td><code>$7600-$767E</code> のチェックサム</td></tr>
+<tr><td><code>$7680-$76EF</code></td><td><code>u8[0x70]</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a> (ID=15)</td></tr>
+<tr><td><code>$76F0-$76FE</code></td><td></td><td>(未使用)</td></tr>
+<tr><td><code>$76FF</code></td><td><code>u8</code></td><td><code>$7680-$76FE</code> のチェックサム</td></tr>
+<tr><td><code>$7700-$7EFF</code></td><td><code>u8[0x800]</code></td><td>セーブデータ (<code>$6F00-$76FF</code> のコピー)</td></tr>
+<tr><td><code>$7F00-$7FFF</code></td><td><code>u8[16][16]</code></td><td>各味方キャラの名前</td></tr>
+</tbody></table>
+<h2 id="xiang-xi">詳細</h2>
+<h3 id="input">入力</h3>
+<p>ABSTUDLR 形式 (bit0:R, bit1:L, ..., bit7:A)。</p>
+<h3 id="direction">方角</h3>
+<table><thead><tr><th>値</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>北</td></tr>
+<tr><td>1</td><td>東</td></tr>
+<tr><td>2</td><td>南</td></tr>
+<tr><td>3</td><td>西</td></tr>
+</tbody></table>
+</body>
+</html>

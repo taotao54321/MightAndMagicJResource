@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -データ構造 -マップ各種フラグ配列</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/">データ構造</a>
+            
+            </header>
+
+    <h1>マップ各種フラグ配列</h1>
+
+    <p>マップの各マスは周囲 4 方向に対する通行不可フラグや、その他諸々のフラグを持っている。ここではこれらを「各種フラグ」と呼ぶことにする。</p>
+<p>各種フラグは 1 バイトに pack された値である。この pack されたバイトを <code>16 * 16 = 256</code> 個並べた配列を「マップ各種フラグ配列」と呼ぶ。</p>
+<p>マップ各種フラグ配列のバイト内の pack 形式は以下の通り:</p>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>7</td><td>イベントあり</td></tr>
+<tr><td>6</td><td>北が通行不可</td></tr>
+<tr><td>5</td><td>暗闇</td></tr>
+<tr><td>4</td><td>東が通行不可</td></tr>
+<tr><td>3</td><td>休息禁止</td></tr>
+<tr><td>2</td><td>南が通行不可</td></tr>
+<tr><td>1</td><td>魔法禁止</td></tr>
+<tr><td>0</td><td>西が通行不可</td></tr>
+</tbody></table>
+<p>マップ各種フラグの並び順は row-major で、y, x ともに昇順。つまり座標 (0, 0), (1, 0), ..., (15, 0), (1, 0), ... のように並んでいる。たとえばオフセット 19 は座標 (3, 1) に対応する。</p>
+<p>マップ各種フラグ配列は <code>$6300-$63FF</code> にロードされる。イベントにより動的に書き換わる場合もある。</p>
+</body>
+</html>

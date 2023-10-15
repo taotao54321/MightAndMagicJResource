@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -データ構造 -アイテムデータ構造体</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/">データ構造</a>
+            
+            </header>
+
+    <h1>アイテムデータ構造体</h1>
+
+    <p>アイテムデータ構造体は 11 バイトで、<a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-14/">PRG 14</a> 内に格納されている。</p>
+<p>アイテムデータ構造体は ROM 内から直接参照されるのではなく、現在見ているアイテムのデータをバッファ <code>$02A8-$02B2</code> にコピーしたものが参照される。</p>
+<p>アイテムデータ構造体の内容は以下の通り:</p>
+<table><thead><tr><th>offset</th><th>型</th><th>内容</th></tr></thead><tbody>
+<tr><td>0</td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/item-data/#equip-mask">装備条件</a></td></tr>
+<tr><td>1</td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/item-data/#equip-effect">装備効果</a></td></tr>
+<tr><td>2</td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/item-data/#equip-effect">装備効果</a>の引数</td></tr>
+<tr><td>3</td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/item-data/#use-effect">使用効果</a></td></tr>
+<tr><td>4</td><td><code>u8</code></td><td><a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/item-data/#use-effect">使用効果</a>の引数</td></tr>
+<tr><td>5</td><td><code>u8</code></td><td>初期チャージ数</td></tr>
+<tr><td>6</td><td><code>u16le</code></td><td>買値</td></tr>
+<tr><td>8</td><td><code>u8</code></td><td>(武器の場合) ダメージダイス面数</td></tr>
+<tr><td>9</td><td><code>u8</code></td><td>(武器の場合) ダメージダイス追加値<br>(鎧/盾の場合) AC修正</td></tr>
+<tr><td>10</td><td><code>u8</code></td><td>(未使用: 意図としては最大チャージ数かも)</td></tr>
+</tbody></table>
+<h2 id="huirudonoxiang-xi">フィールドの詳細</h2>
+<h3 id="equip-mask">offset=0: 装備条件</h3>
+<table><thead><tr><th>bit</th><th>意味</th></tr></thead><tbody>
+<tr><td>0</td><td>盗賊は不可</td></tr>
+<tr><td>1</td><td>魔法使いは不可</td></tr>
+<tr><td>2</td><td>僧侶は不可</td></tr>
+<tr><td>3</td><td>弓使いは不可</td></tr>
+<tr><td>4</td><td>戦士は不可</td></tr>
+<tr><td>5</td><td>騎士は不可</td></tr>
+<tr><td>6-7</td><td>0:性格制限なし, 1:善のみ可, 2:悪のみ可, 3:中立のみ可</td></tr>
+</tbody></table>
+<h3 id="equip-effect">offset=1: 装備効果</h3>
+<p>能力修正系の効果については引数の値が加算される。</p>
+<table><thead><tr><th>値</th><th>意味</th></tr></thead><tbody>
+<tr><td>0x00</td><td>(装備効果なし)</td></tr>
+<tr><td>0x01</td><td>(装備不可)</td></tr>
+<tr><td>0x10</td><td>性別修正</td></tr>
+<tr><td>0x13</td><td>種族修正</td></tr>
+<tr><td>0x15</td><td>知性修正</td></tr>
+<tr><td>0x17</td><td>力修正</td></tr>
+<tr><td>0x19</td><td>魅力修正</td></tr>
+<tr><td>0x1D</td><td>素早さ修正</td></tr>
+<tr><td>0x1F</td><td>技能修正</td></tr>
+<tr><td>0x21</td><td>幸運修正</td></tr>
+<tr><td>0x25</td><td>年齢修正</td></tr>
+<tr><td>0x3C</td><td>AC修正</td></tr>
+<tr><td>0x58</td><td>魔法耐性修正</td></tr>
+<tr><td>0x5A</td><td>火耐性修正</td></tr>
+<tr><td>0x5C</td><td>冷気耐性修正</td></tr>
+<tr><td>0x5E</td><td>電撃耐性修正</td></tr>
+<tr><td>0x60</td><td>酸耐性修正</td></tr>
+<tr><td>0x62</td><td>恐怖耐性修正</td></tr>
+<tr><td>0x64</td><td>毒耐性修正</td></tr>
+<tr><td>0x66</td><td>眠り耐性修正</td></tr>
+<tr><td>0x6C</td><td>解錠スキル修正</td></tr>
+<tr><td>0xFF</td><td>呪い</td></tr>
+</tbody></table>
+<h3 id="use-effect">offset=3: 使用効果</h3>
+<p>上昇/回復/獲得系の効果については引数の値が加算される。魔法発動の場合、魔法IDは <code>(引数) + 1</code> となる。</p>
+<p><span class="xxx">使用効果にはいくつか不具合がある</span>: <a href="https://taotao54321.github.io/MightAndMagicJResource/tips/item-use-effect/">詳細</a></p>
+<table><thead><tr><th>値</th><th>意味</th></tr></thead><tbody>
+<tr><td>0x00</td><td>(使用効果なし)</td></tr>
+<tr><td>0x18</td><td>力一時上昇</td></tr>
+<tr><td>0x1E</td><td>素早さ一時上昇</td></tr>
+<tr><td>0x20</td><td>技能一時上昇</td></tr>
+<tr><td>0x22</td><td>幸運一時上昇</td></tr>
+<tr><td>0x24</td><td>レベル一時上昇</td></tr>
+<tr><td>0x25</td><td>年齢上昇</td></tr>
+<tr><td>0x2B</td><td>MP回復</td></tr>
+<tr><td>0x30</td><td>魔法レベル一時上昇</td></tr>
+<tr><td>0x31</td><td>GEM獲得</td></tr>
+<tr><td>0x3A</td><td>GOLDを 256 単位で獲得</td></tr>
+<tr><td>0x3F</td><td>FOOD獲得</td></tr>
+<tr><td>0x59</td><td><span class="xxx">永続</span> 魔法耐性上昇</td></tr>
+<tr><td>0x63</td><td><span class="xxx">永続</span> 恐怖耐性上昇</td></tr>
+<tr><td>0xFF</td><td>魔法発動</td></tr>
+</tbody></table>
+</body>
+</html>

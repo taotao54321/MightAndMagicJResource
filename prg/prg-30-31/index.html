@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -PRG-ROM -PRG 30-31</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/prg/">PRG-ROM</a>
+            
+            </header>
+
+    <h1>PRG 30-31</h1>
+
+    <p>論理アドレス <code>$C000-$FFFF</code> にマップされるセグメント。</p>
+<p>固定バンクであり、汎用的なコード/データを含む。</p>
+<h2 id="memorimatupu">メモリマップ</h2>
+<table><thead><tr><th>アドレス</th><th>内容</th></tr></thead><tbody>
+<tr><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$DF04</code></td><td>IRQ 割り込みハンドラ (ポインタ <code>$0204</code> が指すルーチンへ飛ぶ)</td></tr>
+<tr><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$FA93-$FAA4</code></td><td>(未使用)</td></tr>
+<tr><td></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$FF6D-$FF6F</code></td><td>(未使用)</td></tr>
+<tr><td><code>$FF70</code></td><td>RESET 割り込みハンドラ (ソフトウェアから呼ばれる場合もある)</td></tr>
+<tr><td><code>$FFE6</code></td><td><span class="todo">TODO</span></td></tr>
+<tr><td><code>$FFEF</code></td><td>NMI 割り込みハンドラ (ポインタ <code>$067E</code> が指すルーチンへ飛ぶ)</td></tr>
+<tr><td><code>$FFF2-$FFF9</code></td><td>(未使用)</td></tr>
+<tr><td><code>$FFFA</code></td><td>割り込みベクタ</td></tr>
+</tbody></table>
+</body>
+</html>

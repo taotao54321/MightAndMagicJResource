@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -データ構造 -踏破済みフラグ配列</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/">データ構造</a>
+            
+            </header>
+
+    <h1>踏破済みフラグ配列</h1>
+
+    <p>本作にはオートマッピング機能がある(一部マップでは無効)。</p>
+<p>オートマッピングが有効なマップについて <code>16 * 16 = 256</code> マスの踏破状況 256bit を記録した配列 (32 バイト) を「踏破済みフラグ配列」と呼ぶ。</p>
+<p>踏破済みフラグに記録されるビット列 (len=256) は row-major で、y については降順、x については昇順。つまり座標 (0, 15), (1, 15), ..., (15, 15), (0, 14), ... のように並んでいる。たとえばビット列内オフセット 19 は座標 (3, 14) に対応する。</p>
+<p>各ビットはバイト内の上位から詰め込まれる。たとえば、踏破済みフラグ配列の先頭 2 バイトが <code>[0b11000001, 0b00101000]</code> ならば、y=15 の踏破状況は以下のようになる:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>0123456789ABCDEF
+</span><span>oo.....o..o.o...
+</span></code></pre>
+<p>踏破済みフラグ配列は <code>$6880</code> からマップID順に並んでいる。ただしオートマッピングが無効なマップID (バーン地上、エルドラド地下4, アストラル世界、イドの迷宮) の範囲のメモリは別用途となっている。詳細は<a href="https://taotao54321.github.io/MightAndMagicJResource/ram/#map">RAM マップ</a>を参照。</p>
+</body>
+</html>

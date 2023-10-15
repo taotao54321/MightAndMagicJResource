@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -小ネタ -アイテムの使用効果に関する不具合</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/tips/">小ネタ</a>
+            
+            </header>
+
+    <h1>アイテムの使用効果に関する不具合</h1>
+
+    <p>魔法発動以外の<a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/item-data/#use-effect">使用効果</a>を持つアイテムを使った場合、単純に「使用効果の引数をあるアドレスに加算する」という挙動になり、上限チェックやオーバーフローチェックは行われない。これに起因する不具合がいくつかある。</p>
+<h2 id="shang-xian-tu-po">上限突破</h2>
+<ul>
+<li>「マナのたね」の使用効果 &quot;MP+10&quot; は最大MPを突破できる。</li>
+<li>「ほしにく」の使用効果 &quot;FOOD+6&quot; は通常のFOOD上限 40 を突破できる。</li>
+</ul>
+<h2 id="zao-rishang-garigaqi-koranai">繰り上がりが起こらない</h2>
+<ul>
+<li>「GEMのポケット」の使用効果 &quot;GEM+10&quot; はGEMの下位バイトに対する加算しか行わないため、オーバーフローにより逆にGEMが減ることがある。たとえば 250 GEM持った状態で使うと 4 GEMになる。</li>
+<li>「とみのつづら」の使用効果 &quot;GOLD+5120&quot; は実際にはGOLDの bit8-15 に対して 20 を加算しているだけなので、オーバーフローにより逆にGOLDが減ることがある。たとえば 65535 GOLD持った状態で使うと 5119 GOLDになる。</li>
+</ul>
+<h2 id="nai-xing-shang-sheng-gayong-sok-suru">耐性上昇が永続する</h2>
+<p>使用効果 &quot;魔法耐性上昇&quot;, &quot;恐怖耐性上昇&quot; はともに<strong>一時効果抜き</strong>の耐性値を上昇させるが、これは加算対象アドレスを間違えている可能性がある。
+なお、これらの使用効果を発動した直後は結果が一時効果込みの耐性値に反映されない(休息や装備変更を行うと反映される)。</p>
+</body>
+</html>

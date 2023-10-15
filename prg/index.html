@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -PRG-ROM</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+            </header>
+
+    <h1>PRG-ROM</h1>
+
+    <p>本作はマッパー 4 (<a href="https://www.nesdev.org/wiki/MMC3">MMC3</a>) であり、PRG-ROM は 0x2000 バイト単位のバンク 32 個からなる。ここでは PRG バンクIDを 0-based (<code>0..=31</code>) で扱う。</p>
+<p>CPU メモリマップは以下の通り:</p>
+<table><thead><tr><th>論理アドレス</th><th>内容</th></tr></thead><tbody>
+<tr><td><code>$6000-$7FFF</code></td><td>Save RAM</td></tr>
+<tr><td><code>$8000-$9FFF</code></td><td>可変バンク領域</td></tr>
+<tr><td><code>$A000-$BFFF</code></td><td>可変バンク領域だが、PRG 29 がマップされていることが多い</td></tr>
+<tr><td><code>$C000-$FFFF</code></td><td>固定バンク領域。常に PRG 30, 31 がマップされる</td></tr>
+</tbody></table>
+<p>Save RAM は起動直後から常時有効化されている。</p>
+<p>基本的には 1 つのセグメントが 1 つのバンク領域に対応するが、例外もある:</p>
+<ul>
+<li>PRG 21 は A, B の 2 つに分かれており、
+<ul>
+<li>PRG 21-A (バンク内範囲 <code>0..=0x1A7F</code>) は PRG 15 と組み合わせてオーディオドライバセグメントを構成する。</li>
+<li>PRG 21-B (バンク内範囲 <code>0x1A80..=0x1FFF</code>) は独立したセグメント。</li>
+</ul>
+</li>
+<li>PRG 23, 24 は連続した 1 セグメントであり、<code>$8000-$BFFF</code> にマップされる。</li>
+</ul>
+<p>セグメント一覧は以下の通り (各セグメントの詳細はリンク先を参照):</p>
+<table><thead><tr><th>セグメント</th><th>論理アドレス</th><th>内容</th></tr></thead><tbody>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-00/">PRG  0</a></td><td><code>$8000-$9FFF</code></td><td>イベント処理 (ポートスミスの町, アルガリーの町, ダスクの町, エルキューンの町)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-01/">PRG  1</a></td><td><code>$8000-$9FFF</code></td><td>イベント処理 (ソーピガルの地下, ノーザンバリアー洞穴, ポートスミスの地下, エルキューンの地下, ダスクの地下, コリンブルッフ洞穴)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-02/">PRG  2</a></td><td><code>$8000-$9FFF</code></td><td>イベント処理 (ボルカノ神殿, 鷹の目洞穴, ホワイトウルフ洞穴, バーン地上A1, バーン地上A2, バーン地上A3, バーン地上A4)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-03/">PRG  3</a></td><td><code>$8000-$9FFF</code></td><td>イベント処理 (バーン地上B1, バーン地上B2, アラマーの城, バーン地上B3, バーン地上B4, バーン地上C1)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-04/">PRG  4</a></td><td><code>$8000-$9FFF</code></td><td>イベント処理 (バーン地上C2, バーン地上C3, バーン地上C4, バーン地上D1, バーン地上D2, バーン地上D3, エルドラド地下2)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-05/">PRG  5</a></td><td><code>$8000-$9FFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-06/">PRG  6</a></td><td><code>$8000-$9FFF</code></td><td>イベント処理 (バーン地上E1, バーン地上E2, バーン地上E3, バーン地上E4, デュームの城)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-07/">PRG  7</a></td><td><code>$8000-$9FFF</code></td><td>イベント処理 (ホワイトウルフの城, ブラックリッジノース, ブラックリッジサウス, ドラガデューンの城)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-08/">PRG  8</a></td><td><code>$8000-$9FFF</code></td><td>イベント処理 (ドラガデューン地下1, ドラガデューン地下2, ドラガデューン地下3, 魔法の砦地下1, 魔法の砦地下2, バーン地上D4)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-09/">PRG  9</a></td><td><code>$8000-$9FFF</code></td><td>イベント処理 (森のあばら屋地下1, 森のあばら屋地下2, レイバン砦地下1, レイバン砦地下2, エルドラド地下1)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-10/">PRG 10</a></td><td><code>$8000-$9FFF</code></td><td>イベント処理 (エルドラド地下3, エルドラド地下4, アストラル世界, イドの迷宮, ソーピガルの町)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-11/">PRG 11</a></td><td><code>$8000-$9FFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-12/">PRG 12</a></td><td><code>$8000-$9FFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-13/">PRG 13</a></td><td><code>$8000-$9FFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-14/">PRG 14</a></td><td><code>$8000-$9FFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-15-21a/">PRG 15 + PRG 21-A</a></td><td><code>$8000-$BA7F</code></td><td>オーディオドライバ</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-16/">PRG 16</a></td><td><code>$8000-$9FFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-17/">PRG 17</a></td><td><code>$8000-$9FFF</code></td><td>戦闘関連</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-18/">PRG 18</a></td><td><code>$8000-$9FFF</code></td><td>魔法関連</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-19/">PRG 19</a></td><td><code>$8000-$9FFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-20/">PRG 20</a></td><td><code>$8000-$9FFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-21b/">PRG 21-B</a></td><td><code>$9A80-$9FFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-22/">PRG 22</a></td><td><code>$8000-$9FFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-23-24/">PRG 23-24</a></td><td><code>$8000-$BFFF</code></td><td></td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-25/">PRG 25</a></td><td><code>$8000-$9FFF</code></td><td>マップデータ (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/">マップID</a> <code>1..=16</code>)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-26/">PRG 26</a></td><td><code>$8000-$9FFF</code></td><td>マップデータ (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/">マップID</a> <code>17..=32</code>)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-27/">PRG 27</a></td><td><code>$8000-$9FFF</code></td><td>マップデータ (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/">マップID</a> <code>33..=48</code>)</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-28/">PRG 28</a></td><td><code>$8000-$9FFF</code></td><td>マップデータ (<a href="https://taotao54321.github.io/MightAndMagicJResource/map/">マップID</a> <code>49..=55</code>), マップメタデータテーブル</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-29/">PRG 29</a></td><td><code>$A000-$BFFF</code></td><td>汎用的なコード/データ</td></tr>
+<tr><td><a href="https://taotao54321.github.io/MightAndMagicJResource/prg/prg-30-31/">PRG 30-31</a></td><td><code>$C000-$FFFF</code></td><td>汎用的なコード/データ</td></tr>
+</tbody></table>
+</body>
+</html>

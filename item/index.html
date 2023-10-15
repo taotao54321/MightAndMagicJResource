@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -アイテム</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+            </header>
+
+    <h1>アイテム</h1>
+
+    <p>アイテムは全 255 種で、ID は 1-based。インベントリ内のアイテムID 0 は空欄を意味する。</p>
+<h2 id="table">アイテムリスト</h2>
+<ul>
+<li>アイテムの種別はIDによって判定される。ID <code>171..=255</code> は「その他」となるが、ここではさらに装備不可フラグの有無により「道具」「装飾品」に分類した。</li>
+<li>売値は <code>max(1, (買値) / 2)</code>。呪い付きアイテムは売れない。</li>
+<li><span class="xxx">使用効果にはいくつか不具合がある</span>: <a href="https://taotao54321.github.io/MightAndMagicJResource/tips/item-use-effect/">詳細</a></li>
+</ul>
+<table><thead><tr><th style="text-align: right">ID</th><th>名前</th><th>種別</th><th>職業</th><th>性格</th><th>装備効果</th><th><span class="has-tooltip" title="カッコ内はチャージ数">使用効果</span></th><th style="text-align: right">買値</th><th>備考</th></tr></thead><tbody>
+<tr><td style="text-align: right">1</td><td>こんぼう</td><td>片手 (d3)</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">1</td><td></td></tr>
+<tr><td style="text-align: right">2</td><td>ナイフ</td><td>片手 (d4)</td><td><code>騎戦弓・魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">5</td><td></td></tr>
+<tr><td style="text-align: right">3</td><td>ハンドアクス</td><td>片手 (d5)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">10</td><td></td></tr>
+<tr><td style="text-align: right">4</td><td>やり</td><td>片手 (d6)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">15</td><td></td></tr>
+<tr><td style="text-align: right">5</td><td>たんけん</td><td>片手 (d6)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">20</td><td></td></tr>
+<tr><td style="text-align: right">6</td><td>つちほこ</td><td>片手 (d6)</td><td><code>騎戦弓僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">25</td><td></td></tr>
+<tr><td style="text-align: right">7</td><td>からざお</td><td>片手 (d7)</td><td><code>騎戦弓僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">40</td><td></td></tr>
+<tr><td style="text-align: right">8</td><td>みかづきとう</td><td>片手 (d7)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">40</td><td></td></tr>
+<tr><td style="text-align: right">9</td><td>ブロードソード</td><td>片手 (d7)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">50</td><td></td></tr>
+<tr><td style="text-align: right">10</td><td>バトルアクス</td><td>片手 (d0)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">60</td><td></td></tr>
+<tr><td style="text-align: right">11</td><td>ロングソード</td><td>片手 (d8)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">60</td><td></td></tr>
+<tr><td style="text-align: right">12</td><td>こんぼう+1</td><td>片手 (d3+1)</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">30</td><td></td></tr>
+<tr><td style="text-align: right">13</td><td>こんぼう+2</td><td>片手 (d3+2)</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">14</td><td>ナイフ+1</td><td>片手 (d4+1)</td><td><code>騎戦弓・魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">50</td><td></td></tr>
+<tr><td style="text-align: right">15</td><td>ハンドアクス+1</td><td>片手 (d5+1)</td><td><code>騎戦弓・・盗</code></td><td>悪</td><td>幸運+1</td><td></td><td style="text-align: right">75</td><td></td></tr>
+<tr><td style="text-align: right">16</td><td>やり+1</td><td>片手 (d6+1)</td><td><code>騎戦弓・・・</code></td><td>善</td><td>幸運+1</td><td></td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">17</td><td>たんけん+1</td><td>片手 (d6+1)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">18</td><td>つちほこ+1</td><td>片手 (d6+1)</td><td><code>騎戦弓僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">125</td><td></td></tr>
+<tr><td style="text-align: right">19</td><td>からざお+1</td><td>片手 (d7+1)</td><td><code>騎戦弓僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">200</td><td></td></tr>
+<tr><td style="text-align: right">20</td><td>みかづきとう+1</td><td>片手 (d7+1)</td><td><code>騎戦弓・・盗</code></td><td>善</td><td>幸運+2</td><td></td><td style="text-align: right">250</td><td></td></tr>
+<tr><td style="text-align: right">21</td><td>ブロードソード+1</td><td>片手 (d7+1)</td><td><code>騎戦弓・・盗</code></td><td>悪</td><td>幸運+2</td><td></td><td style="text-align: right">300</td><td></td></tr>
+<tr><td style="text-align: right">22</td><td>バトルアクス+1</td><td>片手 (d8+1)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">300</td><td></td></tr>
+<tr><td style="text-align: right">23</td><td>ロングソード+1</td><td>片手 (d8+1)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">300</td><td></td></tr>
+<tr><td style="text-align: right">24</td><td>ほのおのこんぼう</td><td>片手 (d3+3)</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>耐火+20</td><td>魔ML1「炎」 (30)</td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">25</td><td>ノイズのこんぼう</td><td>片手 (d3)</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>呪い</td><td></td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">26</td><td>ナイフ+2</td><td>片手 (d4+2)</td><td><code>騎戦弓・魔盗</code></td><td></td><td></td><td>魔ML1「フラッシュ」 (25)</td><td style="text-align: right">200</td><td></td></tr>
+<tr><td style="text-align: right">27</td><td>ハンドアクス+2</td><td>片手 (d5+2)</td><td><code>騎戦弓・・盗</code></td><td>善</td><td>幸運+2</td><td></td><td style="text-align: right">225</td><td></td></tr>
+<tr><td style="text-align: right">28</td><td>やり+2</td><td>片手 (d6+2)</td><td><code>騎戦弓・・・</code></td><td>悪</td><td>幸運+2</td><td></td><td style="text-align: right">250</td><td></td></tr>
+<tr><td style="text-align: right">29</td><td>たんけん+2</td><td>片手 (d6+2)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td>魔ML1「鑑定」 (15)</td><td style="text-align: right">300</td><td></td></tr>
+<tr><td style="text-align: right">30</td><td>つちほこ+2</td><td>片手 (d6+2)</td><td><code>騎戦弓僧・盗</code></td><td></td><td>魅力+1</td><td>僧ML1「退散」 (10)</td><td style="text-align: right">325</td><td></td></tr>
+<tr><td style="text-align: right">31</td><td>からざお+2</td><td>片手 (d7+2)</td><td><code>騎戦弓僧・盗</code></td><td></td><td>魅力+1</td><td>僧ML1「手当て」 (15)</td><td style="text-align: right">350</td><td></td></tr>
+<tr><td style="text-align: right">32</td><td>みかづきとう+2</td><td>片手 (d7+2)</td><td><code>騎戦弓・・盗</code></td><td>悪</td><td>力+1</td><td></td><td style="text-align: right">400</td><td></td></tr>
+<tr><td style="text-align: right">33</td><td>ブロードソード+2</td><td>片手 (d7+2)</td><td><code>騎戦弓・・盗</code></td><td>善</td><td>力+1</td><td></td><td style="text-align: right">400</td><td></td></tr>
+<tr><td style="text-align: right">34</td><td>バトルアクス+2</td><td>片手 (d8+2)</td><td><code>騎戦弓・・盗</code></td><td></td><td>耐火+20</td><td>力+2 (10)</td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">35</td><td>ロングソード+2</td><td>片手 (d8+2)</td><td><code>騎戦弓・・盗</code></td><td></td><td>耐酸+20</td><td>力+2 (10)</td><td style="text-align: right">550</td><td></td></tr>
+<tr><td style="text-align: right">36</td><td>おうじゃのナイフ</td><td>片手 (d4)</td><td><code>騎戦・・魔盗</code></td><td>中</td><td></td><td></td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">37</td><td>りせいのナイフ</td><td>片手 (d4+3)</td><td><code>・・・・魔・</code></td><td></td><td>知性+3</td><td>魔ML4「氷の矢」 (20)</td><td style="text-align: right">750</td><td></td></tr>
+<tr><td style="text-align: right">38</td><td>ダイヤのナイフ</td><td>片手 (d160+4)</td><td><code>・・・・魔・</code></td><td></td><td>力+4</td><td></td><td style="text-align: right">800</td><td></td></tr>
+<tr><td style="text-align: right">39</td><td>でんげきのやり</td><td>片手 (d6+3)</td><td><code>騎戦弓・・・</code></td><td></td><td>耐電+40</td><td>魔ML2「電撃」 (16)</td><td style="text-align: right">1200</td><td></td></tr>
+<tr><td style="text-align: right">40</td><td>せいなるつちほこ</td><td>片手 (d6+4)</td><td><code>・・・僧・・</code></td><td>善</td><td>魅力+3</td><td>僧ML6「蘇れ」 (5)</td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">41</td><td>あくのつちほこ</td><td>片手 (d6+4)</td><td><code>・・・僧・・</code></td><td>悪</td><td>魅力+3</td><td>僧ML6「月の精」 (5)</td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">42</td><td>あんこくのからざお</td><td>片手 (d3)</td><td><code>騎戦弓僧・・</code></td><td></td><td>呪い</td><td>僧ML5「拡散」 (10)</td><td style="text-align: right">600</td><td></td></tr>
+<tr><td style="text-align: right">43</td><td>きょうふのからざお</td><td>片手 (d7+3)</td><td><code>・・・僧・・</code></td><td></td><td>耐恐+40</td><td>魔ML2「まやかし」 (8)</td><td style="text-align: right">1600</td><td></td></tr>
+<tr><td style="text-align: right">44</td><td>こううんのかたな</td><td>片手 (d7+4)</td><td><code>騎戦弓・・盗</code></td><td></td><td>幸運+5</td><td></td><td style="text-align: right">2200</td><td></td></tr>
+<tr><td style="text-align: right">45</td><td>ゾンビのつちほこ</td><td>片手 (d6)</td><td><code>騎戦弓僧・・</code></td><td>善</td><td>呪い</td><td>年齢+10 (5)</td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">46</td><td>こおりのおの</td><td>片手 (d8+3)</td><td><code>騎戦・・・・</code></td><td></td><td>耐冷+40</td><td>魔ML4「氷の矢」 (10)</td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">47</td><td>でんげきのけん</td><td>片手 (d8+3)</td><td><code>騎戦弓・・・</code></td><td></td><td>耐電+40</td><td>魔ML3「稲妻」 (10)</td><td style="text-align: right">2200</td><td></td></tr>
+<tr><td style="text-align: right">48</td><td>ほのおのけん</td><td>片手 (d8+3)</td><td><code>騎戦弓・・・</code></td><td></td><td>耐火+50</td><td>魔ML3「火の玉」 (10)</td><td style="text-align: right">2200</td><td></td></tr>
+<tr><td style="text-align: right">49</td><td>ちからのつるぎ</td><td>片手 (d8+5)</td><td><code>騎・・・・・</code></td><td></td><td>力+6</td><td>力+5 (30)</td><td style="text-align: right">8000</td><td></td></tr>
+<tr><td style="text-align: right">50</td><td>はやてのつるぎ</td><td>片手 (d8+5)</td><td><code>騎戦弓・・・</code></td><td></td><td>素早さ+6</td><td>素早さ+5 (20)</td><td style="text-align: right">7000</td><td></td></tr>
+<tr><td style="text-align: right">51</td><td>きりさきのけん</td><td>片手 (d10+4)</td><td><code>騎戦・・・・</code></td><td>悪</td><td>耐魔+21</td><td>魔ML5「死の指」 (5)</td><td style="text-align: right">6500</td><td></td></tr>
+<tr><td style="text-align: right">52</td><td>めいちゅうのけん</td><td>片手 (d8+6)</td><td><code>騎戦弓・・・</code></td><td>善</td><td>技能+6</td><td>技能+5 (10)</td><td style="text-align: right">6500</td><td></td></tr>
+<tr><td style="text-align: right">53</td><td>まりょくのつるぎ</td><td>片手 (d8+5)</td><td><code>騎戦弓・・盗</code></td><td></td><td>耐魔+30</td><td>魔ML6「魔封じ」 (15)</td><td style="text-align: right">10000</td><td></td></tr>
+<tr><td style="text-align: right">54</td><td>かみがみのけん</td><td>片手 (d8+4)</td><td><code>騎戦・・・・</code></td><td>善</td><td>幸運+5</td><td>僧ML6「若返れ」 (25)</td><td style="text-align: right">7000</td><td></td></tr>
+<tr><td style="text-align: right">55</td><td>まもりのおの</td><td>片手 (d8+5)</td><td><code>騎戦弓・・・</code></td><td></td><td>耐魔+25</td><td>魔ML7「バリアー」 (15)</td><td style="text-align: right">8013</td><td></td></tr>
+<tr><td style="text-align: right">56</td><td>はかいのおの</td><td>片手 (d8+5)</td><td><code>騎戦・・・・</code></td><td>悪</td><td>力+4</td><td>魔ML6「分解」 (6)</td><td style="text-align: right">8000</td><td></td></tr>
+<tr><td style="text-align: right">57</td><td>X!XX!Xのけん</td><td>片手 (d8+4)</td><td><code>騎戦弓・・盗</code></td><td>中</td><td>幸運+15</td><td>幸運+5 (10)</td><td style="text-align: right">6000</td><td></td></tr>
+<tr><td style="text-align: right">58</td><td>きゅうきょくのおの</td><td>片手 (d8+5)</td><td><code>騎戦弓・・・</code></td><td></td><td>幸運+8</td><td>僧ML5「復帰」 (5)</td><td style="text-align: right">12000</td><td></td></tr>
+<tr><td style="text-align: right">59</td><td>きゅうきょくのけん</td><td>片手 (d20+6)</td><td><code>騎戦弓・・盗</code></td><td></td><td>力+10</td><td>素早さ+5 (20)</td><td style="text-align: right">15000</td><td></td></tr>
+<tr><td style="text-align: right">60</td><td>せいれいのけん</td><td>片手 (d8+5)</td><td><code>騎戦弓・・盗</code></td><td></td><td>耐魔+25</td><td>僧ML7「退魔」 (10)</td><td style="text-align: right">12000</td><td></td></tr>
+<tr><td style="text-align: right">61</td><td>スリング</td><td>射撃 (d4)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">10</td><td></td></tr>
+<tr><td style="text-align: right">62</td><td>いしゆみ</td><td>射撃 (d6)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">50</td><td></td></tr>
+<tr><td style="text-align: right">63</td><td>ゆみ</td><td>射撃 (d8)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">75</td><td></td></tr>
+<tr><td style="text-align: right">64</td><td>おおゆみ</td><td>射撃 (d10)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">65</td><td>ドラゴンのゆみ</td><td>射撃 (d12)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">250</td><td></td></tr>
+<tr><td style="text-align: right">66</td><td>スリング+1</td><td>射撃 (d4+1)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">50</td><td></td></tr>
+<tr><td style="text-align: right">67</td><td>いしゆみ+1</td><td>射撃 (d6+1)</td><td><code>騎戦弓・・盗</code></td><td></td><td></td><td></td><td style="text-align: right">250</td><td></td></tr>
+<tr><td style="text-align: right">68</td><td>ゆみ+1</td><td>射撃 (d8+1)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">375</td><td></td></tr>
+<tr><td style="text-align: right">69</td><td>おおゆみ+1</td><td>射撃 (d10+1)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">70</td><td>ドラゴンのゆみ+1</td><td>射撃 (d12+1)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">1250</td><td></td></tr>
+<tr><td style="text-align: right">71</td><td>ルーンのスリング</td><td>射撃 (d4+3)</td><td><code>騎戦弓・・盗</code></td><td></td><td>耐魔+10</td><td>耐魔+20 (10)</td><td style="text-align: right">800</td><td></td></tr>
+<tr><td style="text-align: right">72</td><td>いしゆみ+2</td><td>射撃 (d6+2)</td><td><code>・・弓・・盗</code></td><td></td><td>技能+2</td><td></td><td style="text-align: right">1003</td><td></td></tr>
+<tr><td style="text-align: right">73</td><td>ゆみ+2</td><td>射撃 (d8+2)</td><td><code>騎戦弓・・・</code></td><td></td><td>耐眠+10</td><td></td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">74</td><td>おおゆみ+2</td><td>射撃 (d10+2)</td><td><code>騎戦弓・・・</code></td><td>善</td><td>耐眠+10</td><td></td><td style="text-align: right">1200</td><td></td></tr>
+<tr><td style="text-align: right">75</td><td>ドラゴンのゆみ+2</td><td>射撃 (d12+2)</td><td><code>騎戦弓・・・</code></td><td></td><td>耐恐+30</td><td></td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">76</td><td>こううんのいしゆみ</td><td>射撃 (d6+3)</td><td><code>・・弓・・盗</code></td><td></td><td>幸運+3</td><td>僧ML1「命中」 (20)</td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">77</td><td>すばやきいしゆみ</td><td>射撃 (d6+3)</td><td><code>騎戦弓・・盗</code></td><td></td><td>素早さ+4</td><td>僧ML1「盲目」 (10)</td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">78</td><td>いなずまのゆみ</td><td>射撃 (d10+3)</td><td><code>騎戦弓・・・</code></td><td>善</td><td>耐電+20</td><td>魔ML3「火の玉」 (10)</td><td style="text-align: right">3000</td><td></td></tr>
+<tr><td style="text-align: right">79</td><td>ほのおのゆみ</td><td>射撃 (d10+3)</td><td><code>騎戦弓・・・</code></td><td>悪</td><td>耐火+20</td><td>魔ML3「稲妻」 (10)</td><td style="text-align: right">3000</td><td></td></tr>
+<tr><td style="text-align: right">80</td><td>きょじんのゆみ</td><td>射撃 (d20+3)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">81</td><td>ルーンのゆみ</td><td>射撃 (d16+4)</td><td><code>騎戦弓・・・</code></td><td>善</td><td>耐魔+20</td><td>魔ML5「テレポート」 (5)</td><td style="text-align: right">6000</td><td></td></tr>
+<tr><td style="text-align: right">82</td><td>ちからのゆみ</td><td>射撃 (d16+4)</td><td><code>騎戦弓・・・</code></td><td>悪</td><td>耐恐+40</td><td>レベル+4 (15)</td><td style="text-align: right">6000</td><td></td></tr>
+<tr><td style="text-align: right">83</td><td>とうぞくのいしゆみ</td><td>射撃 (d10+5)</td><td><code>・・・・・盗</code></td><td></td><td>素早さ+4</td><td>魔ML2「速くする」 (10)</td><td style="text-align: right">8000</td><td></td></tr>
+<tr><td style="text-align: right">84</td><td>ますらおのゆみ</td><td>射撃 (d20+5)</td><td><code>・・弓・・・</code></td><td></td><td>技能+5</td><td>魔ML6「分解」 (10)</td><td style="text-align: right">12000</td><td></td></tr>
+<tr><td style="text-align: right">85</td><td>のろいのおおゆみ</td><td>射撃 (d3)</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>呪い</td><td>魔ML5「拡散」 (3)</td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">86</td><td>つえ</td><td>両手 (d8)</td><td><code>騎戦弓僧魔・</code></td><td></td><td></td><td></td><td style="text-align: right">30</td><td></td></tr>
+<tr><td style="text-align: right">87</td><td>なぎなた</td><td>両手 (d10)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">80</td><td></td></tr>
+<tr><td style="text-align: right">88</td><td>しゃくじょう</td><td>両手 (d10)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">80</td><td></td></tr>
+<tr><td style="text-align: right">89</td><td>ほこ</td><td>両手 (d12)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">90</td><td>ハンマー</td><td>両手 (d12)</td><td><code>騎戦弓僧・・</code></td><td></td><td></td><td></td><td style="text-align: right">150</td><td></td></tr>
+<tr><td style="text-align: right">91</td><td>りょうておの</td><td>両手 (d12)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">150</td><td></td></tr>
+<tr><td style="text-align: right">92</td><td>せいりゅうとう</td><td>両手 (d14)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">250</td><td></td></tr>
+<tr><td style="text-align: right">93</td><td>つえ+1</td><td>両手 (d8+1)</td><td><code>騎戦弓僧魔・</code></td><td></td><td>知性+1</td><td></td><td style="text-align: right">200</td><td></td></tr>
+<tr><td style="text-align: right">94</td><td>なぎなた+1</td><td>両手 (d10+1)</td><td><code>騎戦弓・・・</code></td><td>悪</td><td>素早さ+1</td><td></td><td style="text-align: right">350</td><td></td></tr>
+<tr><td style="text-align: right">95</td><td>しゃくじょう+1</td><td>両手 (d10+1)</td><td><code>騎戦弓・・・</code></td><td>善</td><td>素早さ+1</td><td></td><td style="text-align: right">350</td><td></td></tr>
+<tr><td style="text-align: right">96</td><td>ほこ+1</td><td>両手 (d12+1)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">97</td><td>ハンマー+1</td><td>両手 (d12+1)</td><td><code>騎戦弓僧・・</code></td><td></td><td>魅力+1</td><td></td><td style="text-align: right">550</td><td></td></tr>
+<tr><td style="text-align: right">98</td><td>りょうておの+1</td><td>両手 (d12+1)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">99</td><td>せいりゅうとう+1</td><td>両手 (d14+1)</td><td><code>騎戦弓・・・</code></td><td></td><td></td><td></td><td style="text-align: right">600</td><td></td></tr>
+<tr><td style="text-align: right">100</td><td>つえ+2</td><td>両手 (d8+2)</td><td><code>騎戦弓僧魔・</code></td><td></td><td>幸運+2</td><td>魔ML1「眠れ」 (10)</td><td style="text-align: right">600</td><td></td></tr>
+<tr><td style="text-align: right">101</td><td>なぎなた+2</td><td>両手 (d10+2)</td><td><code>騎戦弓・・・</code></td><td>悪</td><td>素早さ+2</td><td></td><td style="text-align: right">900</td><td></td></tr>
+<tr><td style="text-align: right">102</td><td>しゃくじょう+2</td><td>両手 (d10+2)</td><td><code>騎戦弓・・・</code></td><td>善</td><td>素早さ+2</td><td></td><td style="text-align: right">900</td><td></td></tr>
+<tr><td style="text-align: right">103</td><td>ほこ+2</td><td>両手 (d12+2)</td><td><code>騎戦弓・・・</code></td><td></td><td>素早さ+3</td><td>僧ML1「手当て」 (20)</td><td style="text-align: right">1200</td><td></td></tr>
+<tr><td style="text-align: right">104</td><td>ハンマー+2</td><td>両手 (d12+2)</td><td><code>騎戦弓僧・・</code></td><td></td><td>魅力+2</td><td>僧ML1「命中」 (20)</td><td style="text-align: right">1200</td><td></td></tr>
+<tr><td style="text-align: right">105</td><td>りょうておの+2</td><td>両手 (d12+2)</td><td><code>騎戦弓・・・</code></td><td></td><td>力+2</td><td>力+2 (10)</td><td style="text-align: right">1200</td><td></td></tr>
+<tr><td style="text-align: right">106</td><td>せいりゅうとう+2</td><td>両手 (d14+2)</td><td><code>騎戦弓・・・</code></td><td></td><td>力+2</td><td>力+2 (10)</td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">107</td><td>かがやくつえ</td><td>両手 (d8+3)</td><td><code>騎戦弓僧魔・</code></td><td></td><td>耐眠+40</td><td>僧ML3「ランタン」 (20)</td><td style="text-align: right">1500</td><td></td></tr>
+<tr><td style="text-align: right">108</td><td>こおれるなぎなた</td><td>両手 (d10+3)</td><td><code>騎戦弓・・・</code></td><td>悪</td><td>耐冷+40</td><td>僧ML3「凍れ」 (20)</td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">109</td><td>かみのめぐみのつえ</td><td>両手 (d8+3)</td><td><code>・・・僧魔・</code></td><td>善</td><td>耐毒+30</td><td>僧ML1「治療」 (12)</td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">110</td><td>ミノタウロスのおの</td><td>両手 (d3)</td><td><code>騎戦弓・・・</code></td><td></td><td>呪い</td><td></td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">111</td><td>いかずちのハンマー</td><td>両手 (d12+4)</td><td><code>・・・僧・・</code></td><td></td><td>耐電+40</td><td>僧ML4「落雷」 (15)</td><td style="text-align: right">3500</td><td></td></tr>
+<tr><td style="text-align: right">112</td><td>りょうておの+3</td><td>両手 (d12+3)</td><td><code>騎戦弓・・・</code></td><td></td><td>力+4</td><td>素早さ+3 (10)</td><td style="text-align: right">3500</td><td></td></tr>
+<tr><td style="text-align: right">113</td><td>せいりゅうとう+3</td><td>両手 (d14+3)</td><td><code>騎戦弓・・・</code></td><td></td><td>力+4</td><td>素早さ+3 (10)</td><td style="text-align: right">5000</td><td></td></tr>
+<tr><td style="text-align: right">114</td><td>ガンドルフのつえ</td><td>両手 (d8+5)</td><td><code>・・・・魔・</code></td><td></td><td>知性+4</td><td>魔ML7「隕石」 (10)</td><td style="text-align: right">8000</td><td></td></tr>
+<tr><td style="text-align: right">115</td><td>まりょくのつえ</td><td>両手 (d8+4)</td><td><code>騎戦弓僧魔・</code></td><td></td><td>耐魔+25</td><td>魔ML6「魔封じ」 (10)</td><td style="text-align: right">5000</td><td></td></tr>
+<tr><td style="text-align: right">116</td><td>しりょうのなぎなた</td><td>両手 (d10+5)</td><td><code>騎戦・・・・</code></td><td>中</td><td>耐酸+50</td><td>魔ML4「酸の矢」 (40)</td><td style="text-align: right">10000</td><td></td></tr>
+<tr><td style="text-align: right">117</td><td>あくまのなぎなた</td><td>両手 (d10+5)</td><td><code>騎・弓・・・</code></td><td>中</td><td>耐冷+50</td><td>魔ML4「氷の矢」 (40)</td><td style="text-align: right">10000</td><td></td></tr>
+<tr><td style="text-align: right">118</td><td>ふるきかみのかたな</td><td>両手 (d30+6)</td><td><code>騎戦弓・・・</code></td><td></td><td>力+10</td><td>魔ML4「錯乱」 (10)</td><td style="text-align: right">15000</td><td></td></tr>
+<tr><td style="text-align: right">119</td><td>よきこころのかたな</td><td>両手 (d20+6)</td><td><code>・戦・・・・</code></td><td>善</td><td>耐魔+50</td><td>僧ML7「祝福」 (15)</td><td style="text-align: right">20000</td><td></td></tr>
+<tr><td style="text-align: right">120</td><td>あしきもののかたな</td><td>両手 (d20+6)</td><td><code>・戦・・・・</code></td><td>悪</td><td>耐魔+50</td><td>僧ML7「サイコノバ」 (15)</td><td style="text-align: right">20000</td><td></td></tr>
+<tr><td style="text-align: right">121</td><td>どうじょうぎ</td><td>鎧 (AC+1)</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">10</td><td></td></tr>
+<tr><td style="text-align: right">122</td><td>かわよろい</td><td>鎧 (AC+2)</td><td><code>騎戦弓僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">20</td><td></td></tr>
+<tr><td style="text-align: right">123</td><td>うろこよろい</td><td>鎧 (AC+3)</td><td><code>騎戦弓僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">50</td><td></td></tr>
+<tr><td style="text-align: right">124</td><td>リングよろい</td><td>鎧 (AC+4)</td><td><code>騎戦弓僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">125</td><td>くさりよろい</td><td>鎧 (AC+5)</td><td><code>騎戦弓僧・・</code></td><td></td><td></td><td></td><td style="text-align: right">200</td><td></td></tr>
+<tr><td style="text-align: right">126</td><td>スプリントメイル</td><td>鎧 (AC+6)</td><td><code>騎戦・・・・</code></td><td></td><td></td><td></td><td style="text-align: right">400</td><td></td></tr>
+<tr><td style="text-align: right">127</td><td>プレートメイル</td><td>鎧 (AC+7)</td><td><code>騎戦・・・・</code></td><td></td><td></td><td></td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">128</td><td>どうじょうぎ+1</td><td>鎧 (AC+2)</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">25</td><td></td></tr>
+<tr><td style="text-align: right">129</td><td>かわよろい+1</td><td>鎧 (AC+3)</td><td><code>騎戦弓僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">60</td><td></td></tr>
+<tr><td style="text-align: right">130</td><td>うろこよろい+1</td><td>鎧 (AC+4)</td><td><code>騎戦弓僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">120</td><td></td></tr>
+<tr><td style="text-align: right">131</td><td>リングよろい+1</td><td>鎧 (AC+5)</td><td><code>騎戦弓僧・盗</code></td><td></td><td>耐火+5</td><td></td><td style="text-align: right">250</td><td></td></tr>
+<tr><td style="text-align: right">132</td><td>くさりよろい+1</td><td>鎧 (AC+6)</td><td><code>騎戦弓僧・・</code></td><td></td><td>耐火+5</td><td></td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">133</td><td>スプリントメイル+1</td><td>鎧 (AC+7)</td><td><code>騎戦・・・・</code></td><td></td><td>耐火+10</td><td></td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">134</td><td>プレートメイル+1</td><td>鎧 (AC+8)</td><td><code>騎戦・・・・</code></td><td></td><td>耐火+10</td><td></td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">135</td><td>かわよろい+2</td><td>鎧 (AC+4)</td><td><code>騎戦弓僧・盗</code></td><td></td><td>耐電+10</td><td></td><td style="text-align: right">150</td><td></td></tr>
+<tr><td style="text-align: right">136</td><td>うろこよろい+2</td><td>鎧 (AC+5)</td><td><code>騎戦弓僧・盗</code></td><td></td><td>耐冷+10</td><td></td><td style="text-align: right">300</td><td></td></tr>
+<tr><td style="text-align: right">137</td><td>リングよろい+2</td><td>鎧 (AC+6)</td><td><code>騎戦弓僧・盗</code></td><td></td><td>耐火+15</td><td></td><td style="text-align: right">750</td><td></td></tr>
+<tr><td style="text-align: right">138</td><td>くさりよろい+2</td><td>鎧 (AC+7)</td><td><code>騎戦弓僧・・</code></td><td></td><td>耐火+15</td><td></td><td style="text-align: right">1500</td><td></td></tr>
+<tr><td style="text-align: right">139</td><td>スプリントメイル+2</td><td>鎧 (AC+8)</td><td><code>騎戦・・・・</code></td><td></td><td>耐火+20</td><td></td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">140</td><td>プレートメイル+2</td><td>鎧 (AC+9)</td><td><code>騎戦・・・・</code></td><td></td><td>耐火+20</td><td></td><td style="text-align: right">7500</td><td></td></tr>
+<tr><td style="text-align: right">141</td><td>こて レベル4</td><td>鎧 (AC+4)</td><td><code>・・弓・魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">142</td><td>リングよろい+3</td><td>鎧 (AC+7)</td><td><code>騎戦弓僧・盗</code></td><td></td><td>素早さ+2</td><td></td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">143</td><td>くさりよろい+3</td><td>鎧 (AC+8)</td><td><code>騎戦弓僧・・</code></td><td></td><td>幸運+4</td><td></td><td style="text-align: right">4500</td><td></td></tr>
+<tr><td style="text-align: right">144</td><td>スプリントメイル+3</td><td>鎧 (AC+9)</td><td><code>騎戦・・・・</code></td><td></td><td>力+2</td><td></td><td style="text-align: right">7500</td><td></td></tr>
+<tr><td style="text-align: right">145</td><td>プレートメイル+3</td><td>鎧 (AC+10)</td><td><code>騎戦・・・・</code></td><td></td><td>耐火+50</td><td></td><td style="text-align: right">15000</td><td></td></tr>
+<tr><td style="text-align: right">146</td><td>こて レベル6</td><td>鎧 (AC+6)</td><td><code>・・弓・魔盗</code></td><td></td><td>耐恐+20</td><td>魔ML4「シールド」 (20)</td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">147</td><td>くさりよろい+3 (呪)</td><td>鎧 (AC+0)</td><td><code>騎戦弓僧・・</code></td><td></td><td>呪い</td><td></td><td style="text-align: right">4500</td><td></td></tr>
+<tr><td style="text-align: right">148</td><td>こて レベル8 (呪)</td><td>鎧 (AC+0)</td><td><code>・・弓・魔盗</code></td><td></td><td>呪い</td><td></td><td style="text-align: right">7500</td><td></td></tr>
+<tr><td style="text-align: right">149</td><td>あおきリングよろい</td><td>鎧 (AC+9)</td><td><code>騎戦弓僧・盗</code></td><td></td><td>耐電+60</td><td>魔ML3「稲妻」 (30)</td><td style="text-align: right">10000</td><td></td></tr>
+<tr><td style="text-align: right">150</td><td>あかきくさりよろい</td><td>鎧 (AC+10)</td><td><code>騎戦弓僧・・</code></td><td></td><td>耐火+60</td><td>魔ML3「火の玉」 (30)</td><td style="text-align: right">15000</td><td></td></tr>
+<tr><td style="text-align: right">151</td><td>X!XX!Xのよろい</td><td>鎧 (AC+11)</td><td><code>騎戦・・・・</code></td><td>中</td><td>幸運+10</td><td>幸運+5 (10)</td><td style="text-align: right">18000</td><td></td></tr>
+<tr><td style="text-align: right">152</td><td>よきこころのよろい</td><td>鎧 (AC+12)</td><td><code>・戦・・・・</code></td><td>善</td><td>耐魔+40</td><td>耐恐+50 (30)</td><td style="text-align: right">25000</td><td></td></tr>
+<tr><td style="text-align: right">153</td><td>あしきもののよろい</td><td>鎧 (AC+12)</td><td><code>・戦・・・・</code></td><td>悪</td><td>耐魔+40</td><td>耐恐+50 (30)</td><td style="text-align: right">25000</td><td></td></tr>
+<tr><td style="text-align: right">154</td><td>エルロンドのよろい</td><td>鎧 (AC+13)</td><td><code>騎・・・・・</code></td><td></td><td>耐魔+40</td><td>魔ML1「ボイス」 (30)</td><td style="text-align: right">30000</td><td></td></tr>
+<tr><td style="text-align: right">155</td><td>こて レベル8</td><td>鎧 (AC+8)</td><td><code>・・弓・魔盗</code></td><td></td><td>耐恐+60</td><td>魔ML4「シールド」 (40)</td><td style="text-align: right">7500</td><td></td></tr>
+<tr><td style="text-align: right">156</td><td>たて</td><td>盾 (AC+1)</td><td><code>騎戦・僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">10</td><td></td></tr>
+<tr><td style="text-align: right">157</td><td>おおたて</td><td>盾 (AC+2)</td><td><code>騎戦・僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">50</td><td></td></tr>
+<tr><td style="text-align: right">158</td><td>ぎんのたて</td><td>盾 (AC+2)</td><td><code>騎戦・僧・盗</code></td><td></td><td>耐眠+20</td><td></td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">159</td><td>たて+1</td><td>盾 (AC+2)</td><td><code>騎戦・僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">160</td><td>おおたて+1</td><td>盾 (AC+3)</td><td><code>騎戦・僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">200</td><td></td></tr>
+<tr><td style="text-align: right">161</td><td>ゴクリのたて</td><td>盾 (AC+0)</td><td><code>騎戦・僧・盗</code></td><td></td><td>呪い</td><td></td><td style="text-align: right">200</td><td></td></tr>
+<tr><td style="text-align: right">162</td><td>たて+2</td><td>盾 (AC+3)</td><td><code>騎戦・僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">400</td><td></td></tr>
+<tr><td style="text-align: right">163</td><td>ゴクリのおおたて</td><td>盾 (AC+4)</td><td><code>騎戦・僧・盗</code></td><td></td><td></td><td></td><td style="text-align: right">800</td><td></td></tr>
+<tr><td style="text-align: right">164</td><td>おおたて+2</td><td>盾 (AC+0)</td><td><code>騎戦・僧・盗</code></td><td></td><td>呪い</td><td></td><td style="text-align: right">800</td><td></td></tr>
+<tr><td style="text-align: right">165</td><td>ひごろものたて</td><td>盾 (AC+5)</td><td><code>騎戦・僧・盗</code></td><td></td><td>耐火+20</td><td></td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">166</td><td>はるかぜのたて</td><td>盾 (AC+5)</td><td><code>騎戦・僧・盗</code></td><td></td><td>耐冷+20</td><td></td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">167</td><td>ぜつえんのたて</td><td>盾 (AC+5)</td><td><code>騎戦・僧・盗</code></td><td></td><td>耐電+20</td><td></td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">168</td><td>ちゅうわのたて</td><td>盾 (AC+5)</td><td><code>騎戦・僧・盗</code></td><td></td><td>耐酸+20</td><td></td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">169</td><td>まほうがえしのたて</td><td>盾 (AC+6)</td><td><code>騎戦・僧・盗</code></td><td></td><td>耐魔+20</td><td>魔ML4「シールド」 (20)</td><td style="text-align: right">5000</td><td></td></tr>
+<tr><td style="text-align: right">170</td><td>ドラゴンのたて</td><td>盾 (AC+7)</td><td><code>騎戦・僧・盗</code></td><td></td><td>耐魔+10</td><td>魔ML7「バリアー」 (20)</td><td style="text-align: right">8000</td><td></td></tr>
+<tr><td style="text-align: right">171</td><td>フックつきロープ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML2「ジャンプ」 (30)</td><td style="text-align: right">10</td><td></td></tr>
+<tr><td style="text-align: right">172</td><td>たいまつ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML1「フラッシュ」 (5)</td><td style="text-align: right">2</td><td></td></tr>
+<tr><td style="text-align: right">173</td><td>ランタン</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML3「ランタン」 (10)</td><td style="text-align: right">20</td><td></td></tr>
+<tr><td style="text-align: right">174</td><td>10フィートのぼう</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">10</td><td></td></tr>
+<tr><td style="text-align: right">175</td><td>にんにく</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">5</td><td></td></tr>
+<tr><td style="text-align: right">176</td><td>とりかぶと</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">10</td><td></td></tr>
+<tr><td style="text-align: right">177</td><td>ベラドンナ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">25</td><td></td></tr>
+<tr><td style="text-align: right">178</td><td>やくそう</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML1「手当て」 (3)</td><td style="text-align: right">50</td><td></td></tr>
+<tr><td style="text-align: right">179</td><td>ほしにく</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>FOOD+6 (3)</td><td style="text-align: right">40</td><td></td></tr>
+<tr><td style="text-align: right">180</td><td>とうぞくのあいかぎ</td><td>装飾品</td><td><code>・・・・・盗</code></td><td></td><td>解錠+20</td><td></td><td style="text-align: right">150</td><td></td></tr>
+<tr><td style="text-align: right">181</td><td>ぎんかのふくろ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">300</td><td></td></tr>
+<tr><td style="text-align: right">182</td><td>こはく</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">183</td><td>きつけぐすり</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML1「目を覚ます」 (3)</td><td style="text-align: right">50</td><td></td></tr>
+<tr><td style="text-align: right">184</td><td>ゆめのくにのすな</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML1「眠れ」 (5)</td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">185</td><td>ちからのくすり</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>力+5 (3)</td><td style="text-align: right">200</td><td></td></tr>
+<tr><td style="text-align: right">186</td><td>すばやさのくすり</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>素早さ+5 (3)</td><td style="text-align: right">200</td><td></td></tr>
+<tr><td style="text-align: right">187</td><td>ろくぶんぎ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML1「位置を知る」 (50)</td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">188</td><td>きずぐすり</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML2「癒やす」 (4)</td><td style="text-align: right">350</td><td></td></tr>
+<tr><td style="text-align: right">189</td><td>マナのたね</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>MP+10 (2)</td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">190</td><td>まもりのゆびわ</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>AC+1</td><td>魔ML2「敵を知る」 (30)</td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">191</td><td>がらくた</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>呪い</td><td></td><td style="text-align: right">100</td><td></td></tr>
+<tr><td style="text-align: right">192</td><td>まじゅつのまきもの</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML3「火の玉」 (1)</td><td style="text-align: right">300</td><td></td></tr>
+<tr><td style="text-align: right">193</td><td>そらとぶじゅうたん</td><td>装飾品</td><td><code>・・・・魔・</code></td><td></td><td>AC+2</td><td>魔ML3「飛行」 (10)</td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">194</td><td>ひすいのおまもり</td><td>装飾品</td><td><code>・・・・・・</code></td><td>中</td><td>種族+5</td><td></td><td style="text-align: right">600</td><td></td></tr>
+<tr><td style="text-align: right">195</td><td>どくけし</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML4「毒消し」 (2)</td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">196</td><td>せいちょうのくすり</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>レベル+5 (5)</td><td style="text-align: right">600</td><td></td></tr>
+<tr><td style="text-align: right">197</td><td>かぜのブーツ</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>素早さ+5</td><td>素早さ+10 (10)</td><td style="text-align: right">800</td><td></td></tr>
+<tr><td style="text-align: right">198</td><td>うさぎののどぼね</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>幸運+5</td><td>幸運+10 (20)</td><td style="text-align: right">800</td><td></td></tr>
+<tr><td style="text-align: right">199</td><td>ひふきのワンド</td><td>装飾品</td><td><code>・・弓・魔・</code></td><td></td><td>耐火+15</td><td>魔ML3「火の玉」 (10)</td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">200</td><td>バンパイアのゆびわ</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>耐恐+50</td><td>僧ML1「退散」 (20)</td><td style="text-align: right">800</td><td></td></tr>
+<tr><td style="text-align: right">201</td><td>ちんもくのチャイム</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML2「魔封じ」 (20)</td><td style="text-align: right">400</td><td></td></tr>
+<tr><td style="text-align: right">202</td><td>ヘラクレスのベルト</td><td>装飾品</td><td><code>騎戦・・・盗</code></td><td></td><td>力+5</td><td></td><td style="text-align: right">600</td><td></td></tr>
+<tr><td style="text-align: right">203</td><td>おもちゃのボート</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML3「浮島」 (15)</td><td style="text-align: right">400</td><td></td></tr>
+<tr><td style="text-align: right">204</td><td>まもりのマント</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>AC+2</td><td></td><td style="text-align: right">700</td><td></td></tr>
+<tr><td style="text-align: right">205</td><td>ふかきちえのほん</td><td>装飾品</td><td><code>・戦弓僧魔・</code></td><td></td><td>知性+2</td><td>ML+1 (4)</td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">206</td><td>ルビーのおまもり</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">3000</td><td></td></tr>
+<tr><td style="text-align: right">207</td><td>まほうつかいのローブ</td><td>装飾品</td><td><code>・・・・魔・</code></td><td></td><td>知性+5</td><td>魔ML3「透明」 (20)</td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">208</td><td>ガントレット</td><td>装飾品</td><td><code>騎戦弓僧・盗</code></td><td></td><td>力+5</td><td></td><td style="text-align: right">3000</td><td></td></tr>
+<tr><td style="text-align: right">209</td><td>クレリックのじゅず</td><td>装飾品</td><td><code>・・・僧・・</code></td><td></td><td>魅力+5</td><td>僧ML2「癒やす」 (50)</td><td style="text-align: right">3000</td><td></td></tr>
+<tr><td style="text-align: right">210</td><td>しのつのぶえ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML5「死の指」 (10)</td><td style="text-align: right">2500</td><td></td></tr>
+<tr><td style="text-align: right">211</td><td>せいめいのくすり</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML6「蘇れ」 (2)</td><td style="text-align: right">1500</td><td></td></tr>
+<tr><td style="text-align: right">212</td><td>ゆめみるペンダント</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>耐眠+30</td><td>魔ML2「睡魔」 (10)</td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">213</td><td>いなずまのワンド</td><td>装飾品</td><td><code>・・弓僧・盗</code></td><td></td><td>耐電+20</td><td>魔ML3「稲妻」 (10)</td><td style="text-align: right">1500</td><td></td></tr>
+<tr><td style="text-align: right">214</td><td>めいちゅうのゆびわ</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>技能+5</td><td></td><td style="text-align: right">3000</td><td></td></tr>
+<tr><td style="text-align: right">215</td><td>いえじのまきもの</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML6「町へ」 (1)</td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">216</td><td>テレポートのぼうし</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>耐魔+10</td><td>魔ML5「テレポート」 (20)</td><td style="text-align: right">5000</td><td></td></tr>
+<tr><td style="text-align: right">217</td><td>わかがえりのくすり</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML6「若返れ」 (2)</td><td style="text-align: right">4000</td><td></td></tr>
+<tr><td style="text-align: right">218</td><td>ときつぐるかね</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>年齢+10 (50)</td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">219</td><td>まりょくのオイル</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML6「魔力」 (1)</td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">220</td><td>まほうのベスト</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>耐魔+20</td><td>魔ML4「離脱」 (10)</td><td style="text-align: right">6000</td><td></td></tr>
+<tr><td style="text-align: right">221</td><td>はかいのワンド</td><td>装飾品</td><td><code>・・弓・魔・</code></td><td></td><td>耐魔+10</td><td>魔ML6「分解」 (10)</td><td style="text-align: right">7000</td><td></td></tr>
+<tr><td style="text-align: right">222</td><td>せいれいのスカラベ</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>魅力+5</td><td>僧ML7「退魔」 (20)</td><td style="text-align: right">6000</td><td></td></tr>
+<tr><td style="text-align: right">223</td><td>たいようのしょ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML7「サイコノバ」 (1)</td><td style="text-align: right">3000</td><td></td></tr>
+<tr><td style="text-align: right">224</td><td>スタールビー</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>幸運+10</td><td>魔ML1「ボイス」 (30)</td><td style="text-align: right">6000</td><td></td></tr>
+<tr><td style="text-align: right">225</td><td>スターサファイア</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>耐魔+30</td><td>魔ML6「魔封じ」 (10)</td><td style="text-align: right">6000</td><td></td></tr>
+<tr><td style="text-align: right">226</td><td>とみのつづら</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>GOLD+5120 (5)</td><td style="text-align: right">6000</td><td></td></tr>
+<tr><td style="text-align: right">227</td><td>GEMのポケット</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>GEM+10 (10)</td><td style="text-align: right">10000</td><td></td></tr>
+<tr><td style="text-align: right">228</td><td>ダイヤのネックレス</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>年齢+80</td><td>魔ML7「プリズム」 (10)</td><td style="text-align: right">10000</td><td></td></tr>
+<tr><td style="text-align: right">229</td><td>ファイアーオパール</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>年齢+80</td><td>魔ML7「隕石」 (10)</td><td style="text-align: right">10000</td><td></td></tr>
+<tr><td style="text-align: right">230</td><td>きたいはずれのいし</td><td>装飾品</td><td><code>・・・・・・</code></td><td>中</td><td>性別+5</td><td></td><td style="text-align: right">50000</td><td></td></tr>
+<tr><td style="text-align: right">231</td><td>てがみ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">10</td><td></td></tr>
+<tr><td style="text-align: right">232</td><td>ルビーのふえ</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>幸運+2</td><td>僧ML1「目を覚ます」 (200)</td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">233</td><td>きぞくのパスポート</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">0</td><td></td></tr>
+<tr><td style="text-align: right">234</td><td>しみんのパスポート</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">0</td><td></td></tr>
+<tr><td style="text-align: right">235</td><td>クリスタルのかぎ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML7「プリズム」 (10)</td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">236</td><td>さんごのかぎ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML3「浮島」 (10)</td><td style="text-align: right">300</td><td></td></tr>
+<tr><td style="text-align: right">237</td><td>ブロンズのかぎ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML1「鑑定」 (20)</td><td style="text-align: right">500</td><td></td></tr>
+<tr><td style="text-align: right">238</td><td>ぎんのかぎ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML1「鮫の肌」 (30)</td><td style="text-align: right">600</td><td></td></tr>
+<tr><td style="text-align: right">239</td><td>きんのかぎ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML3「透明」 (15)</td><td style="text-align: right">800</td><td></td></tr>
+<tr><td style="text-align: right">240</td><td>ダイヤのかぎ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML5「テレポート」 (20)</td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">241</td><td>サボテンのワイン</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML3「FOOD」 (10)</td><td style="text-align: right">400</td><td></td></tr>
+<tr><td style="text-align: right">242</td><td>さばくのちず</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML1「位置を知る」 (20)</td><td style="text-align: right">400</td><td></td></tr>
+<tr><td style="text-align: right">243</td><td>レーザーブラスター</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>技能+5</td><td>魔ML6「分解」 (10)</td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">244</td><td>ドラゴンのきば</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>僧ML6「若返れ」 (10)</td><td style="text-align: right">1500</td><td></td></tr>
+<tr><td style="text-align: right">245</td><td>ウィバーンのめだま</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML2「まやかし」 (20)</td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">246</td><td>メデューサのくび</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>呪い</td><td></td><td style="text-align: right">0</td><td></td></tr>
+<tr><td style="text-align: right">247</td><td>オクリムのゆびわ</td><td>装飾品</td><td><code>騎戦弓僧魔盗</code></td><td></td><td>幸運+10</td><td>魔ML4「離脱」 (20)</td><td style="text-align: right">3000</td><td></td></tr>
+<tr><td style="text-align: right">248</td><td>くろのクイーン</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">0</td><td></td></tr>
+<tr><td style="text-align: right">249</td><td>しろのクイーン</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">0</td><td></td></tr>
+<tr><td style="text-align: right">250</td><td>かいぞくのちずA</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">1000</td><td></td></tr>
+<tr><td style="text-align: right">251</td><td>かいぞくのちずB</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">2000</td><td></td></tr>
+<tr><td style="text-align: right">252</td><td>ガラドリエルのめぐみ</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>力+15 (250)</td><td style="text-align: right">10000</td><td></td></tr>
+<tr><td style="text-align: right">253</td><td>キーカード</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">0</td><td></td></tr>
+<tr><td style="text-align: right">254</td><td>ゴロスのめだま</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td>魔ML7「アストラル」 (20)</td><td style="text-align: right">10000</td><td></td></tr>
+<tr><td style="text-align: right">255</td><td>こわれたアイテム</td><td>道具</td><td><code>騎戦弓僧魔盗</code></td><td></td><td></td><td></td><td style="text-align: right">0</td><td></td></tr>
+</tbody></table>
+</body>
+</html>

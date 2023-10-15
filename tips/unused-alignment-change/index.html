@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -小ネタ -未使用の性格変更システム</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/tips/">小ネタ</a>
+            
+            </header>
+
+    <h1>未使用の性格変更システム</h1>
+
+    <p>本作には Wizardry 風の性格変更システムが実装された形跡がある。実際、<a href="https://taotao54321.github.io/MightAndMagicJResource/data-structure/hero/">味方キャラ構造体</a>を見ると性格を <code>0..=32</code> に細かく分けた値を持っている。しかし、ロジック的に性格変更コードは決して実行されない。</p>
+<p>該当コードは PRG 29 <code>$ADB5</code> で、これは戦闘前フェイズで「たたかう」またはキャンセルを選んだ場合に実行される。このルーチンは「敵軍の友好判定を最大 3 回行い、1 回でも敵対判定が出たらPT全員の性格を悪側に寄せる」という内容になっている。しかし、PT全員の性格を悪側に寄せる下請けルーチン <code>$ADDE</code> を見ると、味方キャラの細かい性格を変更するコードのバグ(?)により実際には性格値が変更されない (<code>inc $7B</code> の後に <code>lda $7B</code> を入れ忘れている?)。</p>
+<p>なお、チートでこの性格変更を発生させた場合は以下のように表示がバグるが、性格変更自体は正しく行われる。</p>
+<p><img src="https://taotao54321.github.io/MightAndMagicJResource/tips/unused-alignment-change/alignment-change.png" alt="性格変更が発生した場合" /></p>
+</body>
+</html>

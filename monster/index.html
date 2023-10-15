@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -モンスター</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+            </header>
+
+    <h1>モンスター</h1>
+
+    <p>モンスターは全 196 種。</p>
+<p>ゲーム内では「モンスターID」という概念はなく、代わりに「モンスターランク」と「モンスターランク内ID」でモンスターを指定する。
+モンスターランクは <code>1..=12</code> で、ランク <code>1..=11</code> にはそれぞれ 16 種、ランク <code>12</code> には 20 種のモンスターが割り当てられている。モンスターランク内IDはランク内のモンスターを指定する 1-based の値。</p>
+<p>便宜上、ここでは全モンスターに対して単一の 0-based インデックスを割り当てておく(「モンスターインデックス」と呼称する)。</p>
+<h2 id="table">モンスターリスト</h2>
+<table><thead><tr><th style="text-align: right">index</th><th style="text-align: right">rank</th><th style="text-align: right">id</th><th>名前</th><th>備考</th></tr></thead><tbody>
+<tr><td style="text-align: right">0</td><td style="text-align: right">1</td><td style="text-align: right">1</td><td>しにくくらい</td><td></td></tr>
+<tr><td style="text-align: right">1</td><td style="text-align: right">1</td><td style="text-align: right">2</td><td>ミューラット</td><td></td></tr>
+<tr><td style="text-align: right">2</td><td style="text-align: right">1</td><td style="text-align: right">3</td><td>つちのせいれい</td><td></td></tr>
+<tr><td style="text-align: right">3</td><td style="text-align: right">1</td><td style="text-align: right">4</td><td>ノーム</td><td></td></tr>
+<tr><td style="text-align: right">4</td><td style="text-align: right">1</td><td style="text-align: right">5</td><td>ゴブリンおに</td><td></td></tr>
+<tr><td style="text-align: right">5</td><td style="text-align: right">1</td><td style="text-align: right">6</td><td>グレムリン</td><td></td></tr>
+<tr><td style="text-align: right">6</td><td style="text-align: right">1</td><td style="text-align: right">7</td><td>あくまのへいし</td><td></td></tr>
+<tr><td style="text-align: right">7</td><td style="text-align: right">1</td><td style="text-align: right">8</td><td>コボルド</td><td></td></tr>
+<tr><td style="text-align: right">8</td><td style="text-align: right">1</td><td style="text-align: right">9</td><td>ミュースライム</td><td></td></tr>
+<tr><td style="text-align: right">9</td><td style="text-align: right">1</td><td style="text-align: right">10</td><td>オークおに</td><td></td></tr>
+<tr><td style="text-align: right">10</td><td style="text-align: right">1</td><td style="text-align: right">11</td><td>おんりょう</td><td></td></tr>
+<tr><td style="text-align: right">11</td><td style="text-align: right">1</td><td style="text-align: right">12</td><td>ジャカル</td><td></td></tr>
+<tr><td style="text-align: right">12</td><td style="text-align: right">1</td><td style="text-align: right">13</td><td>スケルトン</td><td></td></tr>
+<tr><td style="text-align: right">13</td><td style="text-align: right">1</td><td style="text-align: right">14</td><td>おろち</td><td></td></tr>
+<tr><td style="text-align: right">14</td><td style="text-align: right">1</td><td style="text-align: right">15</td><td>ようせい</td><td></td></tr>
+<tr><td style="text-align: right">15</td><td style="text-align: right">1</td><td style="text-align: right">16</td><td>ミューバット</td><td></td></tr>
+<tr><td style="text-align: right">16</td><td style="text-align: right">2</td><td style="text-align: right">1</td><td>マイナーデモン</td><td></td></tr>
+<tr><td style="text-align: right">17</td><td style="text-align: right">2</td><td style="text-align: right">2</td><td>デビルドッグ</td><td></td></tr>
+<tr><td style="text-align: right">18</td><td style="text-align: right">2</td><td style="text-align: right">3</td><td>ダンビートル</td><td></td></tr>
+<tr><td style="text-align: right">19</td><td style="text-align: right">2</td><td style="text-align: right">4</td><td>ひふきあり</td><td></td></tr>
+<tr><td style="text-align: right">20</td><td style="text-align: right">2</td><td style="text-align: right">5</td><td>グール</td><td></td></tr>
+<tr><td style="text-align: right">21</td><td style="text-align: right">2</td><td style="text-align: right">6</td><td>ノール</td><td></td></tr>
+<tr><td style="text-align: right">22</td><td style="text-align: right">2</td><td style="text-align: right">7</td><td>やまんば</td><td></td></tr>
+<tr><td style="text-align: right">23</td><td style="text-align: right">2</td><td style="text-align: right">8</td><td>キラービートル</td><td></td></tr>
+<tr><td style="text-align: right">24</td><td style="text-align: right">2</td><td style="text-align: right">9</td><td>リーダーオーク</td><td></td></tr>
+<tr><td style="text-align: right">25</td><td style="text-align: right">2</td><td style="text-align: right">10</td><td>きょうせんし</td><td></td></tr>
+<tr><td style="text-align: right">26</td><td style="text-align: right">2</td><td style="text-align: right">11</td><td>あくりょう</td><td></td></tr>
+<tr><td style="text-align: right">27</td><td style="text-align: right">2</td><td style="text-align: right">12</td><td>サベージスルー</td><td></td></tr>
+<tr><td style="text-align: right">28</td><td style="text-align: right">2</td><td style="text-align: right">13</td><td>ビオランテン</td><td></td></tr>
+<tr><td style="text-align: right">29</td><td style="text-align: right">2</td><td style="text-align: right">14</td><td>とうぞく</td><td></td></tr>
+<tr><td style="text-align: right">30</td><td style="text-align: right">2</td><td style="text-align: right">15</td><td>げんしじん</td><td></td></tr>
+<tr><td style="text-align: right">31</td><td style="text-align: right">2</td><td style="text-align: right">16</td><td>ゾンビ</td><td></td></tr>
+<tr><td style="text-align: right">32</td><td style="text-align: right">3</td><td style="text-align: right">1</td><td>どくスライム</td><td></td></tr>
+<tr><td style="text-align: right">33</td><td style="text-align: right">3</td><td style="text-align: right">2</td><td>ケンタウロス</td><td></td></tr>
+<tr><td style="text-align: right">34</td><td style="text-align: right">3</td><td style="text-align: right">3</td><td>クレリック</td><td></td></tr>
+<tr><td style="text-align: right">35</td><td style="text-align: right">3</td><td style="text-align: right">4</td><td>マイナーデビル</td><td></td></tr>
+<tr><td style="text-align: right">36</td><td style="text-align: right">3</td><td style="text-align: right">5</td><td>ひふきこがね</td><td></td></tr>
+<tr><td style="text-align: right">37</td><td style="text-align: right">3</td><td style="text-align: right">6</td><td>ガーゴイル</td><td></td></tr>
+<tr><td style="text-align: right">38</td><td style="text-align: right">3</td><td style="text-align: right">7</td><td>ひとくいあり</td><td></td></tr>
+<tr><td style="text-align: right">39</td><td style="text-align: right">3</td><td style="text-align: right">8</td><td>おおとかげ</td><td></td></tr>
+<tr><td style="text-align: right">40</td><td style="text-align: right">3</td><td style="text-align: right">9</td><td>どくぐも</td><td></td></tr>
+<tr><td style="text-align: right">41</td><td style="text-align: right">3</td><td style="text-align: right">10</td><td>ハルピュイア</td><td></td></tr>
+<tr><td style="text-align: right">42</td><td style="text-align: right">3</td><td style="text-align: right">11</td><td>ヒッポグリフ</td><td></td></tr>
+<tr><td style="text-align: right">43</td><td style="text-align: right">3</td><td style="text-align: right">12</td><td>さつじんばち</td><td></td></tr>
+<tr><td style="text-align: right">44</td><td style="text-align: right">3</td><td style="text-align: right">13</td><td>ペガサス</td><td></td></tr>
+<tr><td style="text-align: right">45</td><td style="text-align: right">3</td><td style="text-align: right">14</td><td>かげのせいれい</td><td></td></tr>
+<tr><td style="text-align: right">46</td><td style="text-align: right">3</td><td style="text-align: right">15</td><td>ワイルドボー</td><td></td></tr>
+<tr><td style="text-align: right">47</td><td style="text-align: right">3</td><td style="text-align: right">16</td><td>くろあなぐま</td><td></td></tr>
+<tr><td style="text-align: right">48</td><td style="text-align: right">4</td><td style="text-align: right">1</td><td>バーバリアン</td><td></td></tr>
+<tr><td style="text-align: right">49</td><td style="text-align: right">4</td><td style="text-align: right">2</td><td>デモンガード</td><td></td></tr>
+<tr><td style="text-align: right">50</td><td style="text-align: right">4</td><td style="text-align: right">3</td><td>コッカトライス</td><td></td></tr>
+<tr><td style="text-align: right">51</td><td style="text-align: right">4</td><td style="text-align: right">4</td><td>サイクロプス</td><td></td></tr>
+<tr><td style="text-align: right">52</td><td style="text-align: right">4</td><td style="text-align: right">5</td><td>ドルイド</td><td></td></tr>
+<tr><td style="text-align: right">53</td><td style="text-align: right">4</td><td style="text-align: right">6</td><td>ライノビートル</td><td></td></tr>
+<tr><td style="text-align: right">54</td><td style="text-align: right">4</td><td style="text-align: right">7</td><td>ミュービートル</td><td></td></tr>
+<tr><td style="text-align: right">55</td><td style="text-align: right">4</td><td style="text-align: right">8</td><td>まじゅつし</td><td></td></tr>
+<tr><td style="text-align: right">56</td><td style="text-align: right">4</td><td style="text-align: right">9</td><td>せんし</td><td></td></tr>
+<tr><td style="text-align: right">57</td><td style="text-align: right">4</td><td style="text-align: right">10</td><td>チーフオーク</td><td></td></tr>
+<tr><td style="text-align: right">58</td><td style="text-align: right">4</td><td style="text-align: right">11</td><td>オグル</td><td></td></tr>
+<tr><td style="text-align: right">59</td><td style="text-align: right">4</td><td style="text-align: right">12</td><td>サテュロス</td><td></td></tr>
+<tr><td style="text-align: right">60</td><td style="text-align: right">4</td><td style="text-align: right">13</td><td>つかいま</td><td></td></tr>
+<tr><td style="text-align: right">61</td><td style="text-align: right">4</td><td style="text-align: right">14</td><td>ユニコーン</td><td></td></tr>
+<tr><td style="text-align: right">62</td><td style="text-align: right">4</td><td style="text-align: right">15</td><td>おおかみおとこ</td><td></td></tr>
+<tr><td style="text-align: right">63</td><td style="text-align: right">4</td><td style="text-align: right">16</td><td>ワイト</td><td></td></tr>
+<tr><td style="text-align: right">64</td><td style="text-align: right">5</td><td style="text-align: right">1</td><td>ザメリアン</td><td></td></tr>
+<tr><td style="text-align: right">65</td><td style="text-align: right">5</td><td style="text-align: right">2</td><td>バジリスク</td><td></td></tr>
+<tr><td style="text-align: right">66</td><td style="text-align: right">5</td><td style="text-align: right">3</td><td>ミュースタッグ</td><td></td></tr>
+<tr><td style="text-align: right">67</td><td style="text-align: right">5</td><td style="text-align: right">4</td><td>ダストデモン</td><td></td></tr>
+<tr><td style="text-align: right">68</td><td style="text-align: right">5</td><td style="text-align: right">5</td><td>おおさそり</td><td></td></tr>
+<tr><td style="text-align: right">69</td><td style="text-align: right">5</td><td style="text-align: right">6</td><td>5つくびヒドラ</td><td></td></tr>
+<tr><td style="text-align: right">70</td><td style="text-align: right">5</td><td style="text-align: right">7</td><td>ケルベロス</td><td></td></tr>
+<tr><td style="text-align: right">71</td><td style="text-align: right">5</td><td style="text-align: right">8</td><td>ミノタウロス</td><td></td></tr>
+<tr><td style="text-align: right">72</td><td style="text-align: right">5</td><td style="text-align: right">9</td><td>リーダーオグル</td><td></td></tr>
+<tr><td style="text-align: right">73</td><td style="text-align: right">5</td><td style="text-align: right">10</td><td>まぼろしのきり</td><td></td></tr>
+<tr><td style="text-align: right">74</td><td style="text-align: right">5</td><td style="text-align: right">11</td><td>ゆうれい</td><td></td></tr>
+<tr><td style="text-align: right">75</td><td style="text-align: right">5</td><td style="text-align: right">12</td><td>けんし</td><td></td></tr>
+<tr><td style="text-align: right">76</td><td style="text-align: right">5</td><td style="text-align: right">13</td><td>トロル</td><td></td></tr>
+<tr><td style="text-align: right">77</td><td style="text-align: right">5</td><td style="text-align: right">14</td><td>きのゴーレム</td><td></td></tr>
+<tr><td style="text-align: right">78</td><td style="text-align: right">5</td><td style="text-align: right">15</td><td>しりょう</td><td></td></tr>
+<tr><td style="text-align: right">79</td><td style="text-align: right">5</td><td style="text-align: right">16</td><td>ゆきおとこ</td><td></td></tr>
+<tr><td style="text-align: right">80</td><td style="text-align: right">6</td><td style="text-align: right">1</td><td>どくふきそう</td><td></td></tr>
+<tr><td style="text-align: right">81</td><td style="text-align: right">6</td><td style="text-align: right">2</td><td>まじょ</td><td></td></tr>
+<tr><td style="text-align: right">82</td><td style="text-align: right">6</td><td style="text-align: right">3</td><td>ひふきトカゲ</td><td></td></tr>
+<tr><td style="text-align: right">83</td><td style="text-align: right">6</td><td style="text-align: right">4</td><td>スロース</td><td></td></tr>
+<tr><td style="text-align: right">84</td><td style="text-align: right">6</td><td style="text-align: right">5</td><td>グリフィン</td><td></td></tr>
+<tr><td style="text-align: right">85</td><td style="text-align: right">6</td><td style="text-align: right">6</td><td>パイロヒドラ</td><td></td></tr>
+<tr><td style="text-align: right">86</td><td style="text-align: right">6</td><td style="text-align: right">7</td><td>あくむのししゃ</td><td></td></tr>
+<tr><td style="text-align: right">87</td><td style="text-align: right">6</td><td style="text-align: right">8</td><td>マンティコア</td><td></td></tr>
+<tr><td style="text-align: right">88</td><td style="text-align: right">6</td><td style="text-align: right">9</td><td>メデューサ</td><td></td></tr>
+<tr><td style="text-align: right">89</td><td style="text-align: right">6</td><td style="text-align: right">10</td><td>ラクシャシャ</td><td></td></tr>
+<tr><td style="text-align: right">90</td><td style="text-align: right">6</td><td style="text-align: right">11</td><td>いしのゴーレム</td><td></td></tr>
+<tr><td style="text-align: right">91</td><td style="text-align: right">6</td><td style="text-align: right">12</td><td>ケイブトロル</td><td></td></tr>
+<tr><td style="text-align: right">92</td><td style="text-align: right">6</td><td style="text-align: right">13</td><td>ヒルトロル</td><td></td></tr>
+<tr><td style="text-align: right">93</td><td style="text-align: right">6</td><td style="text-align: right">14</td><td>ウォーロック</td><td></td></tr>
+<tr><td style="text-align: right">94</td><td style="text-align: right">6</td><td style="text-align: right">15</td><td>くまおとこ</td><td></td></tr>
+<tr><td style="text-align: right">95</td><td style="text-align: right">6</td><td style="text-align: right">16</td><td>くろまじゅつし</td><td></td></tr>
+<tr><td style="text-align: right">96</td><td style="text-align: right">7</td><td style="text-align: right">1</td><td>あんさつしゃ</td><td></td></tr>
+<tr><td style="text-align: right">97</td><td style="text-align: right">7</td><td style="text-align: right">2</td><td>なきおんな</td><td></td></tr>
+<tr><td style="text-align: right">98</td><td style="text-align: right">7</td><td style="text-align: right">3</td><td>つちのきょじん</td><td></td></tr>
+<tr><td style="text-align: right">99</td><td style="text-align: right">7</td><td style="text-align: right">4</td><td>ぬえ</td><td></td></tr>
+<tr><td style="text-align: right">100</td><td style="text-align: right">7</td><td style="text-align: right">5</td><td>たいきのせい</td><td></td></tr>
+<tr><td style="text-align: right">101</td><td style="text-align: right">7</td><td style="text-align: right">6</td><td>くびきりおとこ</td><td></td></tr>
+<tr><td style="text-align: right">102</td><td style="text-align: right">7</td><td style="text-align: right">7</td><td>ゴーゴン</td><td></td></tr>
+<tr><td style="text-align: right">103</td><td style="text-align: right">7</td><td style="text-align: right">8</td><td>レッサーデモン</td><td></td></tr>
+<tr><td style="text-align: right">104</td><td style="text-align: right">7</td><td style="text-align: right">9</td><td>レッサーデビル</td><td></td></tr>
+<tr><td style="text-align: right">105</td><td style="text-align: right">7</td><td style="text-align: right">10</td><td>ミイラおとこ</td><td></td></tr>
+<tr><td style="text-align: right">106</td><td style="text-align: right">7</td><td style="text-align: right">11</td><td>しびとつかい</td><td></td></tr>
+<tr><td style="text-align: right">107</td><td style="text-align: right">7</td><td style="text-align: right">12</td><td>スペクター</td><td></td></tr>
+<tr><td style="text-align: right">108</td><td style="text-align: right">7</td><td style="text-align: right">13</td><td>ホワイトウルフ</td><td></td></tr>
+<tr><td style="text-align: right">109</td><td style="text-align: right">7</td><td style="text-align: right">14</td><td>ウィバーン</td><td></td></tr>
+<tr><td style="text-align: right">110</td><td style="text-align: right">7</td><td style="text-align: right">15</td><td>もりのドラゴン</td><td></td></tr>
+<tr><td style="text-align: right">111</td><td style="text-align: right">7</td><td style="text-align: right">16</td><td>ブルードラゴン</td><td></td></tr>
+<tr><td style="text-align: right">112</td><td style="text-align: right">8</td><td style="text-align: right">1</td><td>イーブルアイ</td><td></td></tr>
+<tr><td style="text-align: right">113</td><td style="text-align: right">8</td><td style="text-align: right">2</td><td>だいちのせい</td><td></td></tr>
+<tr><td style="text-align: right">114</td><td style="text-align: right">8</td><td style="text-align: right">3</td><td>ぼうれい</td><td></td></tr>
+<tr><td style="text-align: right">115</td><td style="text-align: right">8</td><td style="text-align: right">4</td><td>ゆきのきょじん</td><td></td></tr>
+<tr><td style="text-align: right">116</td><td style="text-align: right">8</td><td style="text-align: right">5</td><td>いしのきょじん</td><td></td></tr>
+<tr><td style="text-align: right">117</td><td style="text-align: right">8</td><td style="text-align: right">6</td><td>8くびヒドラ</td><td></td></tr>
+<tr><td style="text-align: right">118</td><td style="text-align: right">8</td><td style="text-align: right">7</td><td>ひのせいれい</td><td></td></tr>
+<tr><td style="text-align: right">119</td><td style="text-align: right">8</td><td style="text-align: right">8</td><td>マンテスウォリア</td><td></td></tr>
+<tr><td style="text-align: right">120</td><td style="text-align: right">8</td><td style="text-align: right">9</td><td>ナーガ</td><td></td></tr>
+<tr><td style="text-align: right">121</td><td style="text-align: right">8</td><td style="text-align: right">10</td><td>ダイノビートル</td><td></td></tr>
+<tr><td style="text-align: right">122</td><td style="text-align: right">8</td><td style="text-align: right">11</td><td>スフィンクス</td><td></td></tr>
+<tr><td style="text-align: right">123</td><td style="text-align: right">8</td><td style="text-align: right">12</td><td>バンパイア</td><td></td></tr>
+<tr><td style="text-align: right">124</td><td style="text-align: right">8</td><td style="text-align: right">13</td><td>とうし</td><td></td></tr>
+<tr><td style="text-align: right">125</td><td style="text-align: right">8</td><td style="text-align: right">14</td><td>ウィザード</td><td></td></tr>
+<tr><td style="text-align: right">126</td><td style="text-align: right">8</td><td style="text-align: right">15</td><td>ゆきのドラゴン</td><td></td></tr>
+<tr><td style="text-align: right">127</td><td style="text-align: right">8</td><td style="text-align: right">16</td><td>いわのドラゴン</td><td></td></tr>
+<tr><td style="text-align: right">128</td><td style="text-align: right">9</td><td style="text-align: right">1</td><td>アーチドルイド</td><td></td></tr>
+<tr><td style="text-align: right">129</td><td style="text-align: right">9</td><td style="text-align: right">2</td><td>こんとんのきし</td><td></td></tr>
+<tr><td style="text-align: right">130</td><td style="text-align: right">9</td><td style="text-align: right">3</td><td>グレートデモン</td><td></td></tr>
+<tr><td style="text-align: right">131</td><td style="text-align: right">9</td><td style="text-align: right">4</td><td>グレートデビル</td><td></td></tr>
+<tr><td style="text-align: right">132</td><td style="text-align: right">9</td><td style="text-align: right">5</td><td>ほのおのせい</td><td></td></tr>
+<tr><td style="text-align: right">133</td><td style="text-align: right">9</td><td style="text-align: right">6</td><td>しゅごれい</td><td></td></tr>
+<tr><td style="text-align: right">134</td><td style="text-align: right">9</td><td style="text-align: right">7</td><td>らいじん</td><td></td></tr>
+<tr><td style="text-align: right">135</td><td style="text-align: right">9</td><td style="text-align: right">8</td><td>12くびヒドラ</td><td></td></tr>
+<tr><td style="text-align: right">136</td><td style="text-align: right">9</td><td style="text-align: right">9</td><td>みえざるキバ</td><td></td></tr>
+<tr><td style="text-align: right">137</td><td style="text-align: right">9</td><td style="text-align: right">10</td><td>まどうし</td><td></td></tr>
+<tr><td style="text-align: right">138</td><td style="text-align: right">9</td><td style="text-align: right">11</td><td>とうぞくのおさ</td><td></td></tr>
+<tr><td style="text-align: right">139</td><td style="text-align: right">9</td><td style="text-align: right">12</td><td>てつのゴーレム</td><td></td></tr>
+<tr><td style="text-align: right">140</td><td style="text-align: right">9</td><td style="text-align: right">13</td><td>ミイラまどう</td><td></td></tr>
+<tr><td style="text-align: right">141</td><td style="text-align: right">9</td><td style="text-align: right">14</td><td>やみのドラゴン</td><td></td></tr>
+<tr><td style="text-align: right">142</td><td style="text-align: right">9</td><td style="text-align: right">15</td><td>ほのおのドラゴン</td><td></td></tr>
+<tr><td style="text-align: right">143</td><td style="text-align: right">9</td><td style="text-align: right">16</td><td>X!XX!X</td><td></td></tr>
+<tr><td style="text-align: right">144</td><td style="text-align: right">10</td><td style="text-align: right">1</td><td>くろきし</td><td></td></tr>
+<tr><td style="text-align: right">145</td><td style="text-align: right">10</td><td style="text-align: right">2</td><td>デモンロード</td><td></td></tr>
+<tr><td style="text-align: right">146</td><td style="text-align: right">10</td><td style="text-align: right">3</td><td>アーチデビル</td><td></td></tr>
+<tr><td style="text-align: right">147</td><td style="text-align: right">10</td><td style="text-align: right">4</td><td>シェンロン</td><td></td></tr>
+<tr><td style="text-align: right">148</td><td style="text-align: right">10</td><td style="text-align: right">5</td><td>おいたるドラゴン</td><td></td></tr>
+<tr><td style="text-align: right">149</td><td style="text-align: right">10</td><td style="text-align: right">6</td><td>ダイヤゴーレム</td><td></td></tr>
+<tr><td style="text-align: right">150</td><td style="text-align: right">10</td><td style="text-align: right">7</td><td>16くびヒドラ</td><td></td></tr>
+<tr><td style="text-align: right">151</td><td style="text-align: right">10</td><td style="text-align: right">8</td><td>ハイクレリック</td><td></td></tr>
+<tr><td style="text-align: right">152</td><td style="text-align: right">10</td><td style="text-align: right">9</td><td>きりん</td><td></td></tr>
+<tr><td style="text-align: right">153</td><td style="text-align: right">10</td><td style="text-align: right">10</td><td>リッチ</td><td></td></tr>
+<tr><td style="text-align: right">154</td><td style="text-align: right">10</td><td style="text-align: right">11</td><td>アーチメイジ</td><td></td></tr>
+<tr><td style="text-align: right">155</td><td style="text-align: right">10</td><td style="text-align: right">12</td><td>ハイアーチャー</td><td></td></tr>
+<tr><td style="text-align: right">156</td><td style="text-align: right">10</td><td style="text-align: right">13</td><td>フェニックス</td><td></td></tr>
+<tr><td style="text-align: right">157</td><td style="text-align: right">10</td><td style="text-align: right">14</td><td>ロックちょう</td><td></td></tr>
+<tr><td style="text-align: right">158</td><td style="text-align: right">10</td><td style="text-align: right">15</td><td>サンドウォーム</td><td></td></tr>
+<tr><td style="text-align: right">159</td><td style="text-align: right">10</td><td style="text-align: right">16</td><td>タイタン</td><td></td></tr>
+<tr><td style="text-align: right">160</td><td style="text-align: right">11</td><td style="text-align: right">1</td><td>アルガりゅう</td><td></td></tr>
+<tr><td style="text-align: right">161</td><td style="text-align: right">11</td><td style="text-align: right">2</td><td>ふかきもの</td><td></td></tr>
+<tr><td style="text-align: right">162</td><td style="text-align: right">11</td><td style="text-align: right">3</td><td>ランプリー</td><td></td></tr>
+<tr><td style="text-align: right">163</td><td style="text-align: right">11</td><td style="text-align: right">4</td><td>リーチ</td><td></td></tr>
+<tr><td style="text-align: right">164</td><td style="text-align: right">11</td><td style="text-align: right">5</td><td>クロコダイル</td><td></td></tr>
+<tr><td style="text-align: right">165</td><td style="text-align: right">11</td><td style="text-align: right">6</td><td>ミュークラブ</td><td></td></tr>
+<tr><td style="text-align: right">166</td><td style="text-align: right">11</td><td style="text-align: right">7</td><td>バラクーダ</td><td></td></tr>
+<tr><td style="text-align: right">167</td><td style="text-align: right">11</td><td style="text-align: right">8</td><td>ミュースクイド</td><td></td></tr>
+<tr><td style="text-align: right">168</td><td style="text-align: right">11</td><td style="text-align: right">9</td><td>エレイール</td><td></td></tr>
+<tr><td style="text-align: right">169</td><td style="text-align: right">11</td><td style="text-align: right">10</td><td>うみぼうず</td><td></td></tr>
+<tr><td style="text-align: right">170</td><td style="text-align: right">11</td><td style="text-align: right">11</td><td>テンタクルズ</td><td></td></tr>
+<tr><td style="text-align: right">171</td><td style="text-align: right">11</td><td style="text-align: right">12</td><td>わにざめ</td><td></td></tr>
+<tr><td style="text-align: right">172</td><td style="text-align: right">11</td><td style="text-align: right">13</td><td>セイレーン</td><td></td></tr>
+<tr><td style="text-align: right">173</td><td style="text-align: right">11</td><td style="text-align: right">14</td><td>みずのせい</td><td></td></tr>
+<tr><td style="text-align: right">174</td><td style="text-align: right">11</td><td style="text-align: right">15</td><td>うみへび</td><td></td></tr>
+<tr><td style="text-align: right">175</td><td style="text-align: right">11</td><td style="text-align: right">16</td><td>かいりゅう</td><td></td></tr>
+<tr><td style="text-align: right">176</td><td style="text-align: right">12</td><td style="text-align: right">1</td><td>さばくのビースト</td><td></td></tr>
+<tr><td style="text-align: right">177</td><td style="text-align: right">12</td><td style="text-align: right">2</td><td>もりのビースト</td><td></td></tr>
+<tr><td style="text-align: right">178</td><td style="text-align: right">12</td><td style="text-align: right">3</td><td>そらのビースト</td><td></td></tr>
+<tr><td style="text-align: right">179</td><td style="text-align: right">12</td><td style="text-align: right">4</td><td>うみのビースト</td><td></td></tr>
+<tr><td style="text-align: right">180</td><td style="text-align: right">12</td><td style="text-align: right">5</td><td>デモンキング</td><td></td></tr>
+<tr><td style="text-align: right">181</td><td style="text-align: right">12</td><td style="text-align: right">6</td><td>サカバスクイーン</td><td></td></tr>
+<tr><td style="text-align: right">182</td><td style="text-align: right">12</td><td style="text-align: right">7</td><td>チラノザウルス</td><td></td></tr>
+<tr><td style="text-align: right">183</td><td style="text-align: right">12</td><td style="text-align: right">8</td><td>エイリアン</td><td></td></tr>
+<tr><td style="text-align: right">184</td><td style="text-align: right">12</td><td style="text-align: right">9</td><td>ボルカノせんし</td><td></td></tr>
+<tr><td style="text-align: right">185</td><td style="text-align: right">12</td><td style="text-align: right">10</td><td>かざんのかみ</td><td></td></tr>
+<tr><td style="text-align: right">186</td><td style="text-align: right">12</td><td style="text-align: right">11</td><td>ポールピード</td><td></td></tr>
+<tr><td style="text-align: right">187</td><td style="text-align: right">12</td><td style="text-align: right">12</td><td>かいぞく</td><td></td></tr>
+<tr><td style="text-align: right">188</td><td style="text-align: right">12</td><td style="text-align: right">13</td><td>かいぞくのおさ</td><td></td></tr>
+<tr><td style="text-align: right">189</td><td style="text-align: right">12</td><td style="text-align: right">14</td><td>Gミノタウロス</td><td></td></tr>
+<tr><td style="text-align: right">190</td><td style="text-align: right">12</td><td style="text-align: right">15</td><td>アーチャーおう</td><td></td></tr>
+<tr><td style="text-align: right">191</td><td style="text-align: right">12</td><td style="text-align: right">16</td><td>レッドチラノ</td><td></td></tr>
+<tr><td style="text-align: right">192</td><td style="text-align: right">12</td><td style="text-align: right">17</td><td>ブルーチラノ</td><td></td></tr>
+<tr><td style="text-align: right">193</td><td style="text-align: right">12</td><td style="text-align: right">18</td><td>キャダバー</td><td></td></tr>
+<tr><td style="text-align: right">194</td><td style="text-align: right">12</td><td style="text-align: right">19</td><td>オクリム</td><td></td></tr>
+<tr><td style="text-align: right">195</td><td style="text-align: right">12</td><td style="text-align: right">20</td><td>シェルテム</td><td></td></tr>
+</tbody></table>
+</body>
+</html>

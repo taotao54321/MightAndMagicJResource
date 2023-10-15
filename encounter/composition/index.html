@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>マイトアンドマジック (FC) 攻略&#x2F;解析 -エンカウント -敵編成処理</title>
+
+    <link rel="stylesheet" href="https://taotao54321.github.io/MightAndMagicJResource/css/main.css">
+</head>
+<body><header><a href="https://taotao54321.github.io/MightAndMagicJResource/">マイトアンドマジック (FC) 攻略&#x2F;解析</a>
+            
+                - 
+            <a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/">エンカウント</a>
+            
+            </header>
+
+    <h1>敵編成処理</h1>
+
+    <p>敵軍の全個体を確定させる敵編成処理について。</p>
+<p>敵編成処理には以下の要素が影響する:</p>
+<ul>
+<li><a href="https://taotao54321.github.io/MightAndMagicJResource/encounter/kind/#composition">敵編成種別</a></li>
+<li>現在のマップのモンスターランク範囲</li>
+<li>現在のマップの敵個体数上限</li>
+<li>PT全員のレベル</li>
+</ul>
+<p>処理の流れを記す。まず敵軍の個体数と「敵軍の強さ」を以下のように初期化する:</p>
+<ul>
+<li>ランダム編成の場合、個体数 0, 敵軍の強さ 0 とする。</li>
+<li>固定編成の場合、個体数と敵軍の強さはイベント処理により決められた値とする。万一個体数が 0 の場合は 1 とする(敵が 0 体になるのを防ぐためと思われる。該当するイベントは存在しない)。</li>
+</ul>
+<details><summary><span class="summary">「敵軍の強さ」について</span></summary>
+後述のランダム敵追加処理を見るとわかるように、「敵軍の強さ」は「全ての敵個体のモンスターランクの総和」とみなせる。ただし、固定編成の場合はイベント側で恣意的な初期値が設定される(固定敵の内容によらない)。これは、「数種類の固定編成からランダムに選ぶ」などのパターンもあるため、その都度モンスターランクの総和を求める手間を省いたものと思われる。
+</details>
+<p>次にランダム敵追加処理を行う。準備として「自軍の強さ」という値を定義する:</p>
+<ul>
+<li><code>(自軍の強さ) = ((PT全員のレベルの総和) / 2) &amp; 0xFF</code> (本来の型は <code>u16</code> だが、下位バイトしか参照されないので実質 <code>u8</code> 値となっている)。</li>
+</ul>
+<p>ランダム敵追加処理の疑似コードを以下に示す:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>// 固定編成の場合、ランダム敵を追加できるかどうかの判定を先に行う。
+</span><span>if (固定編成である)
+</span><span>    if (敵軍の強さ) &gt;= (自軍の強さ)
+</span><span>        処理終了
+</span><span>    if (敵の個体数) &gt;= min(15, (このマップの敵個体数上限))
+</span><span>        処理終了
+</span><span>
+</span><span>// ランダム敵を追加できるだけ追加する。
+</span><span>// 追加する敵種を決め、それを数体ずつ追加することを繰り返す。
+</span><span>loop
+</span><span>    // 追加するランダム敵のモンスターランクを決める。
+</span><span>    // 主人公のレベルとマップのモンスターランク範囲が影響する。
+</span><span>
+</span><span>    // 関数 f は以下の確率分布で 0..=4 の乱数を返す:
+</span><span>    // 0:50%, 1:20%, 2:15%, 3:10%, 4:5%
+</span><span>    (モンスターランク上限) = (主人公のレベル) / 2 + f()
+</span><span>    (モンスターランク) = if (モンスターランク上限) == 0
+</span><span>        1
+</span><span>    else
+</span><span>        (モンスターランク上限) = min((このマップのモンスターランク上限), (モンスターランク上限))
+</span><span>        rand(1..=(モンスターランク上限))
+</span><span>    (モンスターランク) = max((このマップのモンスターランク下限), (モンスターランク))
+</span><span>
+</span><span>    // ランダム敵のモンスターランクは 10 が上限。
+</span><span>    (モンスターランク) = min(10, (モンスターランク))
+</span><span>
+</span><span>    // 追加するランダム敵のモンスターランク内IDを決める。
+</span><span>    // ランク 12 以外は全てちょうど 16 種のモンスターを含むことに注意。
+</span><span>    (モンスターランク内ID) = rand(1..=16)
+</span><span>
+</span><span>    // この敵種を何体追加するかを決める。
+</span><span>    // 1 回ごとの追加個体数上限はモンスターごとに定められている。
+</span><span>    // 万一追加個体数上限が 0 の場合、モンスターランク決定からやり直す (該当するのはシェルテムのみ)。
+</span><span>    (追加個体数上限) = (モンスターデータ内の値)
+</span><span>    if (追加個体数上限) == 0
+</span><span>        continue
+</span><span>    (追加個体数) = rand(1..=(追加個体数上限))
+</span><span>
+</span><span>    // この敵種を (追加個体数) だけ追加することを試みる。途中で追加できなくなったらループ終了。
+</span><span>    for _ in 0..(追加個体数)
+</span><span>        (敵軍の強さ) += (モンスターランク)
+</span><span>        敵リスト末尾にこの敵種の個体を追加
+</span><span>
+</span><span>        // 次の個体を追加できるかどうかの判定。
+</span><span>        if (敵の個体数) &gt;= min(15, (このマップの敵個体数上限))
+</span><span>            break
+</span><span>        if (敵軍の強さ) &gt; (自軍の強さ)  // ここでは等号が付かないことに注意
+</span><span>            break
+</span><span>
+</span><span>    // 次の敵種を追加できるかどうかの判定。
+</span><span>    if (敵軍の強さ) &gt;= (自軍の強さ)
+</span><span>        break
+</span><span>    if (敵の個体数) &gt;= min(15, (このマップの敵個体数上限))
+</span><span>        break
+</span></code></pre>
+<p>注: モンスターランク決定時には一旦 <code>1..=(モンスターランク上限)</code> の乱数を発生してからマップのモンスターランク下限との max をとっているため、マップのモンスターランク範囲の分布は一様ではない(下限の値が出やすい)。</p>
+</body>
+</html>
